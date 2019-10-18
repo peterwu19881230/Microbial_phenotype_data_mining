@@ -1,0 +1,9 @@
+* using log directory ‘/Users/peterwu/TAMU Google Drive/Shared drives/HuLab/Nichols_Data_mining/tableSMY package all files.Rcheck’
+* using R version 3.5.2 (2018-12-20)
+* using platform: x86_64-apple-darwin15.6.0 (64-bit)
+* using session charset: UTF-8
+* using option ‘--as-cran’
+* checking for file ‘tableSMY package all files/DESCRIPTION’ ... ERROR
+File DESCRIPTION does not exist
+* DONE
+Status: 1 ERROR

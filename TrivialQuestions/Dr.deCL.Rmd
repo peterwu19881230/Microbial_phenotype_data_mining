@@ -1,0 +1,48 @@
+---
+title: "Dr.deCL’s questions"
+author: "Peter Wu"
+date: "3/23/2018"
+output: pdf_document
+---
+
+#Goal: Answer Dr.deCL's questions
+```{r, tidy=T}
+#part I: rediscover pathways
+
+##queuosine biosynthesis pwy
+##fis, queA, tgt, yajc are in Nichols'
+##secD, secF -- not in Nichols'
+ECK_1st_table[ECK_1st_table$associated_gene_names %in% c("fis","queA","tgt","yajC"),]
+
+
+##id for those genes: 525,1052,2024,2117
+##This table shows the correlations
+sort.pcc.sql.NoIdent[(sort.pcc.sql.NoIdent$strain1 %in% c(525,1052,2024,2117)) &
+                     (sort.pcc.sql.NoIdent$strain2 %in% c(525,1052,2024,2117)),]
+
+
+## sulfoquinovose degradation I pwy
+##yihS,yihT,yihU,yihV,yihW are all in Nichols'
+##(Note: yihW is colored differently than the other genes in this pwy. In ecoliWiki yihW is a predicted DNA-binding transcriptional regulator. Maybe that's the reason?)
+ECK_1st_table[ECK_1st_table$associated_gene_names %in% c("yihS","yihT","yihU","yihV","yihW"),]
+
+##id for those genes: 1436, 1525, 2690, 3196, 3270
+##This table shows the correlations
+sort.pcc.sql.NoIdent[(sort.pcc.sql.NoIdent$strain1 %in% c(1436,1525,2690,3196,3270)) &
+                       (sort.pcc.sql.NoIdent$strain2 %in% c(1436,1525,2690,3196,3270)),]
+
+##ygbJ,ygbK,ygbL (Their functions are all unknown)
+##ygbJ,ygbK,ygbL are all in Nichols'
+##(Note: yihW is colored differently than the other genes in this pwy. In ecoliWiki yihW is a predicted DNA-binding transcriptional regulator. Maybe that's the reason?)
+ECK_1st_table[ECK_1st_table$associated_gene_names %in% c("ygbJ","ygbK","ygbL"),]
+
+##id for those genes: 798, 919, 1125
+##This table shows the correlations
+sort.pcc.sql.NoIdent[(sort.pcc.sql.NoIdent$strain1 %in% c(798,919,1125)) &
+                       (sort.pcc.sql.NoIdent$strain2 %in% c(798,919,1125)),]
+
+
+##Conclusion: genes in the 2 pathways and the other 3 genes are not that correlated
+```
+
+

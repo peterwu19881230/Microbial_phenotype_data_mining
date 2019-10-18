@@ -1,0 +1,104 @@
+---
+title: "Correlations v.s. annotations"
+output: 
+  html_document:
+    keep_md: true
+---
+
+Goal: Determine whether pearson correlation coefficient correlates with pathway annotations to genes
+
+#This chunk uses the whole dataset (All_Data)
+```{r ,tidy=TRUE,fig1, fig.height = 5, fig.width = 12}
+
+
+start.time=Sys.time()
+strain1strain2.samePWY_Annot.TF=merge(binary_sort.pcc.sql.NoIdent,strain1strain2.samePWY_Annot,by=c("strain1","strain2"))
+end.time=Sys.time()
+end.time-start.time #Time difference of 59.40187 secs
+
+#Change pcc to absolute value
+strain1strain2.samePWY_Annot.TF$Pearson.Correlation.Coefficient=abs(strain1strain2.samePWY_Annot.TF$Pearson.Correlation.Coefficient)
+
+#Sort the dataframe by pcc 
+strain1strain2.samePWY_Annot.TF=strain1strain2.samePWY_Annot.TF[order(strain1strain2.samePWY_Annot.TF$Pearson.Correlation.Coefficient,decreasing=T),]
+
+##(!) Solve this: ids with the same genotypes will cause problem in this analysis (Eg. duplicated strains)
+
+
+##Negative control => Look at the total fraction:
+sum(strain1strain2.samePWY_Annot.TF$bi.pwy.annot)/length(strain1strain2.samePWY_Annot.TF$bi.pwy.annot) ##0.001283708    => Different than 0.0009839238 because lots of strain pairs don't have a valid pcc
+
+#Change these 2 variables to run all the following analysis
+TF=strain1strain2.samePWY_Annot.TF$bi.pwy.annot
+pcc=strain1strain2.samePWY_Annot.TF$Pearson.Correlation.Coefficient
+
+## Use the ranges of pcc for bins 
+bin.values=seq(1,0,length.out=21) # 21 values for ranges of 20 bins
+fraction=c()
+lengs=c() #No. of pcc for each bin. This is stored for displaying on the following barplot
+for(i in 1:20){
+  range=c(bin.values[i],bin.values[i+1])
+  binary.vector=TF[pcc<=range[1] & pcc>range[2]]
+  fraction[i]=sum(binary.vector)/length(binary.vector)
+  lengs[i]=length(binary.vector)
+}
+mar.default <- c(5,4,4,2) + 0.1
+
+par(mar = mar.default + c(0, 4, 0, 0),mgp=c(4,1,0)) #mgp sets the axis label locations
+bp=barplot(main="PCC V.S. annotation in Nichols'",fraction,ylim=c(0,0.8),ylab="Same pwy annotation / Total pcc in a bin",
+        names.arg=c("1-0.95","0.95-0.9","0.9-0.85","0.85-0.8","0.8-0.75","0.75-0.7","0.7-0.65","0.65-0.6","0.6-0.55","0.55-0.5","0.5-0.45",
+                    "0.45-0.4","0.4-0.35","0.35-0.3","0.3-0.25","0.25-0.2","0.2-0.15","0.15-0.1","0.1-0.05","0.05-0"),
+        las=2, # las=2 rotates both the texts on x and y axis
+        cex.names =0.7,
+        xlab="Range of Pearson Correlation Coefficient"
+        ) 
+text(bp,fraction,pos=3,labels=lengs,cex=0.5) #"3" in pos=3 means "above"
+##The first argument contains the positions (x-axis values) for the labels
+##The second argument contains the positions (y-axis values) for the labels
+text(bp[1],fraction[1]+0.02,pos=3,labels="(No. of pcc in the bin)",cex=0.7,col="blue") #"3" in pos=3 means "above"
+
+
+# Negative control: I guess sampling many many tims would just be equivalent of taking the average (As discribed above)
+
+##More detailed bar plot. This would give an approximation of what the following line plot would look like.
+bin.values=seq(1,0,length.out=2001) 
+fraction=c()
+lengs=c() #No. of pcc for each bin. This is stored for displaying on the following barplot
+for(i in 1:(length(bin.values)-1)){
+  range=bin.values[i+1]
+  binary.vector=TF[pcc>range]   
+                                                                        
+  fraction[i]=sum(binary.vector)/length(binary.vector)
+  lengs[i]=length(binary.vector)
+}
+mar.default <- c(5,4,4,2) + 0.1
+
+par(mar = mar.default + c(0, 4, 0, 0),mgp=c(4,1,0)) #mgp sets the axis label locations
+bp=barplot(main="PCC V.S. annotation in Nichols'",fraction,ylim=c(0,0.8),ylab="No. of same pwy annotation / cumulative total no. of pcc",
+           xlab="Decreasing PCC"
+) 
+
+##Line plot of the first 10000 (Would take too long to plot the whole pcc)
+fraction=c()
+cummulativeRatio=c()
+TFvector=TF
+for(i in 1:10000){
+  cummulativeRatio[i]=sum(TFvector[1:i])/i
+}
+all_sorted_pcc=pcc
+
+plot(1:length(cummulativeRatio),cummulativeRatio,type="l",xlab="Order of the decreasing PCC",ylab="No. of the same pwy annotation / No. of pcc until the number of pcc")
+text(c(1,2000,4000,6000,8000,10000),
+     cummulativeRatio[c(1,2000,4000,6000,8000,10000)],pos=3,
+     labels=round(c(all_sorted_pcc[1],all_sorted_pcc[2000],all_sorted_pcc[4000],all_sorted_pcc[6000],all_sorted_pcc[8000],all_sorted_pcc[10000]),4),
+     cex=0.5) #"3" in pos=3 means "above"           
+
+##If this analysis is ugly, I don't even have to think about fixing the strains (ids with the same genotypes will cause problem in this analysis (Eg. duplicated strains))
+
+```
+##If this analysis is ugly, I don't even have to think about fixing the strains (ids with the same genotypes will cause problem in this analysis (Eg. duplicated strains))
+```
+
+
+*Knitted by: rmarkdown::render("correlationVSannotation_pwy/binary.correlationVSannotation.Rmd")
+

@@ -1,0 +1,9 @@
+anyIncomplete           Check Incompletion
+changeNames             Change rol/col names
+checkDuplicates_vect    Check items that occur more than once
+filterTable             Check and remove incompletion of your
+                        matrix/dataframe/datatable
+graphTable              Draw a heat map of your
+                        matrix/dataframe/datatable
+tableSMY-package        A Simple Toolbox that Allows Quick
+                        Visualization of your Matrix or Dataframe

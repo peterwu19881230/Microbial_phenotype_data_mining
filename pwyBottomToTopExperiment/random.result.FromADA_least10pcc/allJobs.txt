@@ -1,0 +1,35 @@
+## The random table is created using the following .lsf files and all the data and .R files in this folder.
+
+
+
+## Run the following on ada
+bsub <random2.lsf
+bsub <random3.lsf
+bsub <random3.lsf
+bsub <random4.lsf
+bsub <random5.lsf
+bsub <random6.lsf
+bsub <random7.lsf
+bsub <random8.lsf
+bsub <random9.lsf
+bsub <random10.lsf
+bsub <random11.lsf
+bsub <random12.lsf
+bsub <random13.lsf
+bsub <random14.lsf
+bsub <random15.lsf
+bsub <random16.lsf
+bsub <random17.lsf
+bsub <random18.lsf
+bsub <random20.lsf
+bsub <random21.lsf
+bsub <random22.lsf
+bsub <random26.lsf
+bsub <random27.lsf
+bsub <random28.lsf
+bsub <random31.lsf
+bsub <random41.lsf
+bsub <random48.lsf
+
+## *After the jobs are done, use parse_random.results.R to create the random table obj into R
+

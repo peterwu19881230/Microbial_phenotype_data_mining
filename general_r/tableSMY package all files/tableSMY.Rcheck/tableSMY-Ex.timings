@@ -1,0 +1,7 @@
+name	user	system	elapsed
+anyIncomplete	0.004	0.003	0.018	
+changeNames	0.002	0.002	0.010	
+checkDuplicates_vect	0.000	0.001	0.007	
+filterTable	0.001	0.001	0.008	
+graphTable	0.005	0.002	0.018	
+tableSMY-package	0.366	0.041	0.433	

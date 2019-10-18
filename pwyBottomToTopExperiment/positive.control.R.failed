@@ -1,0 +1,50 @@
+#Goal: Do positive control using j (No. of genes in pathways)
+
+j=c(3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,20,21,22,26,27,28,31,41,48)
+##samp is used to generate random most-correlated strains (No. of strains=j=3,4,5,6,7....48)
+samp=list()
+k=0 #a counter
+set.seed(101)
+for(i in j){
+  k=k+1
+  samp[[k]]=sample(1:3979,1)
+  
+  ##select the (n-1) strains that have the highest correlations to the sampled strain
+  strain1.fixed=sort.pcc.sql.NoIdent[sort.pcc.sql.NoIdent$strain1==samp[[k]],]
+  
+  joined=strain1.fixed[order(strain1.fixed$Pearson.Correlation.Coefficient,decreasing = T),]$strain2[1:(i-1)]
+  samp[[k]]=c(samp[[k]],joined)
+  }
+
+
+##(!)There is a hole in the algorithm: what is most correlated for 1 strain might not be most correlated for other strains
+##=>Using correlation is not good!
+avg.fraction=c()
+num=0  #a counter for avg.fraction
+##This loop is to go through different pathways
+for(i in 1:length(samp)){ 
+    
+    num.2=0
+    fraction=c()
+    indices=samp[[i]]
+    ##this loop is to go through that particular No. of strains
+    for(k in indices){
+      num.2=num.2+1
+      table=sort.pcc.sql.NoIdent[sort.pcc.sql.NoIdent$strain1==k,]
+      sort.table=table[order(table$Pearson.Correlation.Coefficient,decreasing = T),]
+      n.sort.table=sort.table[1:(length(indices)-1),]
+      print(n.sort.table)
+      fraction[num.2]=sum(n.sort.table$strain2 %in% indices)/(length(indices)-1)
+    }
+
+  num=num+1
+  avg.fraction[num]=mean(fraction)
+}
+
+
+
+
+
+
+
+

@@ -1,0 +1,9 @@
+anyIncomplete           Check Incompletion
+changeNames             Change rol/col names
+checkDuplicates_vect    Check items that occur more than once
+filterTable             Generate quick visualization of your
+                        matrix/dataframe and filter any NA/NULL/""
+graphTable              Draw a heat map of your
+                        matrix/dataframe/datatable
+tableSMY-package        A Simple Toolbox that Allows Quick
+                        Visualization of your Matrix or Dataframe

@@ -1,0 +1,54 @@
+<?php
+
+
+
+
+#this opens the strain mmc file
+		$filename='ECK.csv';
+		echo"opening $filename\n";
+		$fh=fopen($filename, "r");
+
+
+$ExcelArray = array_map('str_getcsv', file('ECK.csv'));
+$ExcelArrayUnique=array_unique($ExcelArray);
+
+	
+	foreach($ExcelArray as $StrainArray) #although this might contain the first row, which is the header and conditions
+	{
+	$AllStrainName[]=$StrainArray[0];
+	}			
+	$AllStrainNameUnique=array_unique($AllStrainName);	
+		$ExcelArrayDiff=array_diff_key($AllStrainName,$AllStrainNameUnique);
+		
+	
+	
+	
+	
+	
+	foreach($ExcelArrayDiff as $ExcelArrayDiffString) #meaning: foreach(array that contains all the duplicate strain names) as (individual duplicate strain name)
+	{
+	
+		foreach($ExcelArray as $ExcelArrayRow) #pull out each row from original excel file
+		{
+			if($ExcelArrayRow[0]==$ExcelArrayDiffString)  # if the strain name of the row matches our duplicate strain
+			{
+			echo $ExcelArrayRow[0].":\n";  #echo strain name
+				$i=0; # set $i=0 when starting from a row/reset $i=0 when starting from a new row
+				foreach($ExcelArrayRow as $score)  #check if the score is significant
+				{
+				if($score!=NULL) #set the threshold for signicant phenotypes
+				{echo $ExcelArray[0][$i].": ".$score."\n";} #echo the score and the corresponding condition
+				
+				/*
+				Only flaw here is that $ExcelArray[0][$i] throws -unspecified. Already googled. Unsolved.
+				*/
+				
+				$previous=$ExcelArrayDiffString; #use this to compare the next strain name. If they are the same, pull them together
+				
+				$i++;
+				}
+			
+			echo "\n";
+			}
+		}
+	}

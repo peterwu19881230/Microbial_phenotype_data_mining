@@ -1,0 +1,139 @@
+---
+title: "pwy+pcomp_annotVScorr"
+author: "Peter Wu"
+date: "3/24/2018"
+output: 
+  html_document:
+    keep_md: true
+---
+
+#Goal: Combine pwy and ptcomplexes' correlation V.S. annotation
+```{r, tidy=TRUE}
+#obj_prep is required
+#source("obj_prep.R")
+
+#plotting using basic graph
+
+##First 10000
+cutoff=10000
+plot(main="",1:cutoff,cumSum$pcc[1:cutoff],type="l",xlab="High--PCC--Low",ylab="No. of being in the same pwy/ptcomplex",cex.axis=1.5,cex.main=1.5,cex.lab=1.5)
+lines(1:cutoff,cumSum$MHD[1:cutoff],type="l",col="red") #MHD
+
+lines(1:cutoff,cumSum$euclidean[1:cutoff],type="l",col="yellow")
+lines(1:cutoff,cumSum$maximum[1:cutoff],type="l",col="green")  #
+lines(1:cutoff,cumSum$manhattan[1:cutoff],type="l",col="purple")
+lines(1:cutoff,cumSum$canberra[1:cutoff],type="l",col="grey")
+lines(1:cutoff,cumSum$binary[1:cutoff],type="l",col="cyan")
+lines(1:cutoff,cumSum$minkowski[1:cutoff],type="l",col="blue")  #
+lines(1:cutoff,cumSum$spearman[1:cutoff],type="l",col="pink")
+abline(0,slopeForControl,lty='dotted',col="black") #This is the negative control (For PCC+quantitative and MHD+qualitative they are the same)
+
+
+##ggplot version (much slower than using basic graph)
+##The sampled graph doesn't look different than the non-sampled one
+samples=seq(from=0,to=7914231,by=1989); samples[1]=1 #change samples to 1:10000 to get the first 10000 results
+library(ggplot2)
+library(scales) #This is for label=comma (not using scientific notation and put commas) to work
+ggplot()+geom_line(data=data.frame(no=samples,CumSum=cumSum$pcc[samples]),aes(no,CumSum,color="PCC"))+
+  geom_line(data=data.frame(no=samples,CumSum=cumSum$MHD[samples]),aes(no,CumSum,color="MHD"))+
+  geom_line(data=data.frame(no=samples,CumSum=cumSum$euclidean[samples]),aes(no,CumSum,color="euclidean"))+
+  geom_line(data=data.frame(no=samples,CumSum=cumSum$maximum[samples]),aes(no,CumSum,color="maximum"))+
+  geom_line(data=data.frame(no=samples,CumSum=cumSum$manhattan[samples]),aes(no,CumSum,color="manhattan"))+
+  geom_line(data=data.frame(no=samples,CumSum=cumSum$canberra[samples]),aes(no,CumSum,color="canberra"))+
+  geom_line(data=data.frame(no=samples,CumSum=cumSum$minkowski[samples]),aes(no,CumSum,color="minkowski"))+  
+  geom_line(data=data.frame(no=samples,CumSum=cumSum$spearman[samples]),aes(no,CumSum,color="spearman"))+  
+  geom_abline(intercept=,slope=slopeForControl,linetype='dotted',color="black")+ #negative control
+  geom_abline(intercept=0, slope=1,linetype='dotted',color="black")+ #positive control
+  scale_y_continuous(expand = c(0,0),label=comma)+scale_x_continuous(expand = c(0,0),label=comma)+
+  labs(x = "Low--Distance--High",y="No. of being in the same pwy/ptcomplex",aesthetic='custom text')+
+  scale_color_discrete(name="Distance")
+
+##Use No.- negative control as y values
+samples=seq(from=0,to=7914231,by=1989); samples[1]=1 #change samples to 1:10000 to get the first 10000 results
+library(ggplot2)
+library(scales) #This is for label=comma (not using scientific notation and put commas) to work
+ggplot()+geom_line(data=data.frame(no=samples,CumSum=cumSum$pcc[samples]-samples*slopeForControl),aes(no,CumSum,color="PCC"))+
+  geom_line(data=data.frame(no=samples,CumSum=cumSum$MHD[samples]-samples*slopeForControl),aes(no,CumSum,color="MHD"))+
+  geom_line(data=data.frame(no=samples,CumSum=cumSum$euclidean[samples]-samples*slopeForControl),aes(no,CumSum,color="euclidean"))+
+  geom_line(data=data.frame(no=samples,CumSum=cumSum$maximum[samples]-samples*slopeForControl),aes(no,CumSum,color="maximum"))+
+  geom_line(data=data.frame(no=samples,CumSum=cumSum$manhattan[samples]-samples*slopeForControl),aes(no,CumSum,color="manhattan"))+
+  geom_line(data=data.frame(no=samples,CumSum=cumSum$canberra[samples]-samples*slopeForControl),aes(no,CumSum,color="canberra"))+
+  geom_line(data=data.frame(no=samples,CumSum=cumSum$minkowski[samples]-samples*slopeForControl),aes(no,CumSum,color="minkowski"))+  
+  geom_line(data=data.frame(no=samples,CumSum=cumSum$spearman[samples]-samples*slopeForControl),aes(no,CumSum,color="spearman"))+  
+  geom_abline(intercept=0, slope=1-slopeForControl,linetype='dotted',color="black")+ #positive control => y=(1-slopeForNegativeControl)*x
+  scale_y_continuous(expand = c(0,0),label=comma)+scale_x_continuous(expand = c(0,0),label=comma)+
+  labs(x = "Low--Distance--High",y="No. of being in the same pwy/ptcomplex - negative control",aesthetic='custom text')+
+  scale_color_discrete(name="Distance")
+
+
+#The following only shows things in pathways:
+samples=1:dim(pwy.pcc)[1]
+library(scales) #This is for label=comma (not using scientific notation and put commas) to work
+ggplot()+geom_line(data=data.frame(no=samples,CumSum=cumSum_pwy$pcc[samples]),aes(no,CumSum,color="PCC"))+
+  geom_line(data=data.frame(no=samples,CumSum=cumSum_pwy$MHD[samples]),aes(no,CumSum,color="MHD"))+
+  geom_line(data=data.frame(no=samples,CumSum=cumSum_pwy$euclidean[samples]),aes(no,CumSum,color="euclidean"))+
+  geom_line(data=data.frame(no=samples,CumSum=cumSum_pwy$maximum[samples]),aes(no,CumSum,color="maximum"))+
+  geom_line(data=data.frame(no=samples,CumSum=cumSum_pwy$manhattan[samples]),aes(no,CumSum,color="manhattan"))+
+  geom_line(data=data.frame(no=samples,CumSum=cumSum_pwy$canberra[samples]),aes(no,CumSum,color="canberra"))+
+  geom_line(data=data.frame(no=samples,CumSum=cumSum_pwy$minkowski[samples]),aes(no,CumSum,color="minkowski"))+  
+  geom_line(data=data.frame(no=samples,CumSum=cumSum_pwy$spearman[samples]),aes(no,CumSum,color="spearman"))+  
+  geom_abline(intercept=,slope=slopeForControl_inPwy,linetype='dotted',color="black")+ #negative control
+  geom_abline(intercept=0, slope=1,linetype='dotted',color="black")+ #positive control
+  scale_y_continuous(expand = c(0,0),label=comma)+scale_x_continuous(expand = c(0,0),label=comma)+
+  labs(x = "Low--Distance--High",y="No. of being in the same pwy",aesthetic='custom text')+
+  scale_color_discrete(name="Distance")
+
+
+
+samples=1:dim(pwy.pcc)[1]
+library(scales) #This is for label=comma (not using scientific notation and put commas) to work
+ggplot()+geom_line(data=data.frame(no=samples,CumSum=cumSum_pwy$pcc[samples]),aes(no,CumSum,color="PCC"))+
+  geom_line(data=data.frame(no=samples,CumSum=cumSum_pwy$MHD[samples]),aes(no,CumSum,color="MHD"))+
+  geom_line(data=data.frame(no=samples,CumSum=cumSum_pwy$MHD_noNA[samples]),aes(no,CumSum,color="MHD (no NA)"))+ #This overlaps with "MHD"
+  geom_line(data=data.frame(no=samples,CumSum=cumSum_pwy$MHD2_noNA[samples]),aes(no,CumSum,color="MHD2 (no NA)"))+
+  geom_line(data=data.frame(no=samples,CumSum=cumSum_pwy$MHD3_noNA[samples]),aes(no,CumSum,color="MHD3 (no NA)"))+
+  geom_abline(intercept=,slope=slopeForControl,linetype='dotted',color="black")+ #negative control
+  geom_abline(intercept=0, slope=1,linetype='dotted',color="black")+ #positive control
+  scale_y_continuous(expand = c(0,0),label=comma)+scale_x_continuous(expand = c(0,0),label=comma)+
+  labs(x = "Low--Distance--High",y="No. of being in the same pwy",aesthetic='custom text')+
+  scale_color_discrete(name="Distance")
+
+
+##For only genes in protein complexes
+##inptcomplex_strain1strain2.pcc.samePTcomplex_Annot is used
+samples=1:length(TF_pcom$pcc)
+library(scales) #This is for label=comma (not using scientific notation and put commas) to work
+ggplot()+geom_line(data=data.frame(no=samples,CumSum=cumSum_pcom$pcc[samples]),aes(no,CumSum,color="PCC"))+
+  geom_line(data=data.frame(no=samples,CumSum=cumSum_pcom$MHD[samples]),aes(no,CumSum,color="MHD"))+
+  geom_line(data=data.frame(no=samples,CumSum=cumSum_pcom$euclidean[samples]),aes(no,CumSum,color="euclidean"))+
+  geom_line(data=data.frame(no=samples,CumSum=cumSum_pcom$maximum[samples]),aes(no,CumSum,color="maximum"))+
+  geom_line(data=data.frame(no=samples,CumSum=cumSum_pcom$manhattan[samples]),aes(no,CumSum,color="manhattan"))+
+  geom_line(data=data.frame(no=samples,CumSum=cumSum_pcom$canberra[samples]),aes(no,CumSum,color="canberra"))+
+  geom_line(data=data.frame(no=samples,CumSum=cumSum_pcom$minkowski[samples]),aes(no,CumSum,color="minkowski"))+  
+  geom_line(data=data.frame(no=samples,CumSum=cumSum_pcom$spearman[samples]),aes(no,CumSum,color="spearman"))+  
+  geom_abline(intercept=,slope=slopeForControl_inPcom,linetype='dotted',color="black")+ #negative control
+  geom_abline(intercept=0, slope=1,linetype='dotted',color="black")+ #positive control
+  scale_y_continuous(expand = c(0,0),label=comma)+scale_x_continuous(expand = c(0,0),label=comma)+
+  labs(x = "Low--Distance--High",y="No. of being in the same ptcomplex",aesthetic='custom text')+
+  scale_color_discrete(name="Distance")
+
+
+samples=1:length(TF_pcom$pcc)
+library(scales) #This is for label=comma (not using scientific notation and put commas) to work
+ggplot()+geom_line(data=data.frame(no=samples,CumSum=cumSum_pcom$pcc[samples]),aes(no,CumSum,color="PCC"))+
+  geom_line(data=data.frame(no=samples,CumSum=cumSum_pcom$MHD[samples]),aes(no,CumSum,color="MHD"))+
+  geom_line(data=data.frame(no=samples,CumSum=cumSum_pcom$MHD_noNA[samples]),aes(no,CumSum,color="MHD (no NA)"))+ #This overlaps with "MHD"
+  geom_line(data=data.frame(no=samples,CumSum=cumSum_pcom$MHD2_noNA[samples]),aes(no,CumSum,color="MHD2 (no NA)"))+
+  geom_line(data=data.frame(no=samples,CumSum=cumSum_pcom$MHD3_noNA[samples]),aes(no,CumSum,color="MHD3 (no NA)"))+
+  geom_abline(intercept=,slope=slopeForControl_inPcom,linetype='dotted',color="black")+ #negative control
+  geom_abline(intercept=0, slope=1,linetype='dotted',color="black")+ #positive control
+  scale_y_continuous(expand = c(0,0),label=comma)+scale_x_continuous(expand = c(0,0),label=comma)+
+  labs(x = "Low--Distance--High",y="No. of being in the same ptcomplex",aesthetic='custom text')+
+  scale_color_discrete(name="Distance")
+
+
+
+
+```
+*Knitted by: rmarkdown::render("TrivialQuestions/Pwy+pcomp_annotVScorr.Rmd")
+

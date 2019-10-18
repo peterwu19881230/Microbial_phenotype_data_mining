@@ -1,0 +1,162 @@
+
+
+---
+title: "Correlations v.s. annotations"
+output: 
+  html_document:
+    keep_md: true
+---
+
+Goal: Determine whether pearson correlation coefficient correlates with pathway annotations to genes
+
+
+#This chunk uses the whole dataset (All_Data)
+```{r ,tidy=TRUE,fig1, fig.height = 5, fig.width = 12}
+#merge() can be used to combine dataframes using 2 columns
+'
+x=data.frame(strain1=c(1,2,3,4,5),strain2=c(2,3,4,5,6),annotation=c("a","b","c","d","e"))
+y=data.frame(strain1=c(2,3,1,4,5),strain2=c(3,4,2,5,6),pcc=c("0.8","0.7","0.9","0.6","0.5"))
+merge(x,y,by=c("strain1","strain2"))    
+'
+
+start.time=Sys.time()
+strain1strain2.samePWY_Annot.TF=merge(binary_dist_hamming,strain1strain2.samePWY_Annot,by=c("strain1","strain2"))
+end.time=Sys.time()
+end.time-start.time #Time difference of 1.212085 mins
+
+#Sort by hamming distance (increasing)
+strain1strain2.samePWY_Annot.TF=strain1strain2.samePWY_Annot.TF[order(strain1strain2.samePWY_Annot.TF$'Hamming Distance',decreasing=F),]
+
+
+##(!) Solve this: ids with the same genotypes will cause problem in this analysis (Eg. duplicated strains)
+
+##### Modify the following code:---------------------------------------
+
+##Negative control => Look at the total fraction:
+sum(strain1strain2.samePWY_Annot.TF$bi.pwy.annot)/length(strain1strain2.samePWY_Annot.TF$bi.pwy.annot) #0.0009839238
+
+#Change these 2 variables to run all the following analysis
+TF=strain1strain2.samePWY_Annot.TF$bi.pwy.annot
+hdist=strain1strain2.samePWY_Annot.TF$'Hamming Distance'
+
+## Use the ranges of hdist for bins 
+bin.values=seq(0,200,length.out=21) # 21 values for ranges of 20 bins. 
+##Max value for hdist here is 184 so I just use 200. Use 184 => last value won't be graphed
+
+fraction=c()
+lengs=c() #No. of hamming for each bin. This is stored for displaying on the following barplot
+for(i in 1:20){
+  range=c(bin.values[i],bin.values[i+1])
+  binary.vector=TF[hdist>=range[1] & hdist<range[2]]
+  fraction[i]=sum(binary.vector)/length(binary.vector)
+  lengs[i]=length(binary.vector)
+}
+mar.default <- c(5,4,4,2) + 0.1
+
+
+#Fig. 1
+names.arg=c()
+for(i in 1:20){
+  names.arg=c(names.arg,paste(bin.values[i],"-",bin.values[i+1],sep=""))
+}
+
+  
+par(mar = mar.default + c(0, 4, 0, 0),mgp=c(4,1,0)) #mgp sets the axis label locations
+bp=barplot(main="Fig.1: Hamming V.S. pwy annotation in Nichols'",fraction,ylim=c(0,0.8),ylab="Same pwy annotation / Total hamming in a bin",
+        names.arg=names.arg,
+        las=2, # las=2 rotates both the texts on x and y axis
+        cex.names =0.7,
+        xlab="Range of Hamming distance"
+        ) 
+text(bp,fraction,pos=3,labels=lengs,cex=0.5) #"3" in pos=3 means "above"
+##The first argument contains the positions (x-axis values) for the labels
+##The second argument contains the positions (y-axis values) for the labels
+text(bp[2],fraction[1]+0.02,pos=3,labels="(No. of hamming dist in the bin)",cex=0.7,col="blue") #"3" in pos=3 means "above"
+
+
+# Negative control: I guess sampling many many tims would just be equivalent of taking the average (As discribed above)
+
+
+#Fig. 2
+##More detailed bar plot (all values above threshold instead of within the bin). This would give an approximation of what the following line plot would look like.
+start.time=Sys.time()
+
+bin.values=seq(0,200,length.out=2001) 
+fraction=c()
+lengs=c() #No. of hamming for each bin. This is stored for displaying on the following barplot
+for(i in 1:(length(bin.values)-1)){
+  range=bin.values[i+1]
+  binary.vector=TF[hdist<range]   
+                                                                        
+  fraction[i]=sum(binary.vector)/length(binary.vector)
+  lengs[i]=length(binary.vector)
+}
+mar.default <- c(5,4,4,2) + 0.1
+
+par(mar = mar.default + c(0, 4, 0, 0),mgp=c(4,1,0)) #mgp sets the axis label locations
+bp=barplot(main="Fig. 2: Hamming V.S. pwy annotation in Nichols' (pseudo-cummulative)",fraction,ylim=c(0,0.8),ylab="No. of same pwy annotation / cumulative total no. of hamming",
+           xlab="Decreasing Hamming distance"
+) 
+
+end.time=Sys.time()
+end.time-start.time 
+
+#Fig. 3
+##Line plot of the first 10000 (Would take too long to plot the whole pcc)
+fraction=c()
+cummulativeRatio=c()
+TFvector=TF
+for(i in 1:10000){
+  cummulativeRatio[i]=sum(TFvector[1:i])/i
+}
+all_sorted_hdist=hdist
+
+plot(main="Fig. 3: First 10000 Hamming V.S. pwy annotation in Nichols' (pseudo-cummulative)",1:length(cummulativeRatio),cummulativeRatio,type="l",xlab="Order of the increasing hdist",ylab="No. of the same pwy annotation / No. of hdist until the  cutoff hdist")
+text(c(1,2000,4000,6000,8000,10000),
+     cummulativeRatio[c(1,2000,4000,6000,8000,10000)],pos=3,
+     labels=round(c(all_sorted_hdist[1],all_sorted_hdist[2000],all_sorted_hdist[4000],all_sorted_hdist[6000],all_sorted_hdist[8000],all_sorted_hdist[10000]),4),
+     cex=0.5) #"3" in pos=3 means "above"           
+
+##If this analysis is ugly, I don't even have to think about fixing the strains (ids with the same genotypes will cause problem in this analysis (Eg. duplicated strains))
+
+```
+
+#This chunk uses the dataset that only contains genes annotated in pathways
+```{r ,tidy=TRUE, fig.height = 5, fig.width = 12}
+##get the table by merging pwy.pcc and strain1strain2.samePWY_Annot.TF
+pwy.hdist=pwy.hdist=merge(pwy.pcc[,c(1:2,4)],strain1strain2.samePWY_Annot.TF,by=c("strain1","strain2"))
+
+## Use the ranges of hdist for bins:
+bin.values=seq(0,200,length.out=21)
+fraction=c()
+lengs=c() #No. of hdist for each bin. This is stored for displaying on the following barplot
+for(i in 1:20){
+  range=c(bin.values[i],bin.values[i+1])
+  binary.vector=pwy.hdist$`At least 1 same annotation`[pwy.hdist$`Hamming Distance`>=range[1] & pwy.hdist$`Hamming Distance`<range[2]]
+  fraction[i]=sum(binary.vector)/length(binary.vector)
+  lengs[i]=length(binary.vector)
+}
+
+#Fig. 4
+mar.default <- c(5,4,4,2) + 0.1
+par(mar = mar.default + c(0, 4, 0, 0),mgp=c(4,1,0)) #mgp sets the axis label locations
+bp=barplot(main="Fig. 4: Hamming distance V.S. pwy annotation in Nichols' (genes in pwy only)",fraction,ylim=c(0,0.8),ylab="(Same pwy annotation / Total hdist in a bin)",
+        names.arg=names.arg,
+        las=2, # las=2 rotates both the texts on x and y axis
+        cex.names =0.7,
+        xlab="Range of Hamming distance"
+        ) 
+
+text(bp,fraction,pos=3,labels=lengs,cex=0.5) #"3" in pos=3 means "above"
+##The first argument contains the positions (x-axis values) for the labels
+##The second argument contains the positions (y-axis values) for the labels
+text(bp[2],fraction[1]+0.02,pos=3,labels="(No. of hamming in the bin)",cex=0.7,col="blue") #"3" in pos=3 means "above"
+
+
+# Negative control: I guess sampling many many tims would just be equivalent of taking the average (As discribed above):
+```
+##If this analysis is ugly, I don't even have to think about fixing the strains (ids with the same genotypes will cause problem in this analysis (Eg. duplicated strains))
+
+
+*Knitted by: rmarkdown::render("correlationVSannotation_pwy/binaryHamming_correlationVSannotation.Rmd")
+

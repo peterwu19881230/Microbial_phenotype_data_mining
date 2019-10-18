@@ -1,0 +1,50 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
+Goal: Use the canonical iris dataset to explain how clustering can be used to group uncategorized data (In this case unknown iris species with known: sepal length, sepal width, petal lenth and petal width )
+
+```{r,tidy=T}
+data("iris")
+
+#A peek at the data
+head(iris)
+
+# Set random seed. 
+set.seed(1)
+
+# Chop up iris in my_iris and species
+my_iris <- iris[-5] ##remove the species column (total=3)
+species <- iris$Species
+
+# Perform k-means clustering on my_iris: kmeans_iris
+kmeans_iris<-kmeans(my_iris,3)
+
+# Compare the actual Species to the clustering using table()
+table(species,kmeans_iris$cluster)
+
+# Plot Petal.Width against Petal.Length, coloring by cluster
+plot(Petal.Length ~ Petal.Width, data = my_iris, col = kmeans_iris$cluster)
+
+#Principle component analysis
+matrix<-scale(my_iris) ##Scaling needed (new.x=(x-x.bar)/sd)
+pr.out<-prcomp(matrix)
+
+##library("devtools")
+##install_github("kassambara/factoextra")
+library("factoextra")
+
+##The default
+fviz_pca_ind(pr.out)
+
+##Use points only
+fviz_pca_ind(pr.out, geom="point")
+
+##Color individuals by groups and circle them
+p <- fviz_pca_ind(pr.out, label="none", habillage=iris$Species,
+             addEllipses=TRUE, ellipse.level=0.95)
+print(p)
+```
+
+

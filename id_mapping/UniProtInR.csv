@@ -1,0 +1,225 @@
+"","yourlist.M20171004A7434721E10EE6586998A056CCD0537E098130M","isomap.M20171004A7434721E10EE6586998A056CCD0537E098130M","Entry","Entry.name","Status","Protein.names","Organism"
+"1","ECOCYC:G7055-MONOMER","","P31658","HCHA_ECOLI","reviewed","Protein/nucleic acid deglycase 1 (EC 3.1.2.-) (EC 3.5.1.-) (EC 3.5.1.124) (Glyoxalase III) (EC 4.2.1.130) (Holding molecular chaperone) (Hsp31) (Maillard deglycase)","Escherichia coli (strain K12)"
+"2","ECOCYC:EG11744-MONOMER","","P31828","PQQL_ECOLI","reviewed","Probable zinc protease PqqL (EC 3.4.24.-)","Escherichia coli (strain K12)"
+"3","ECOCYC:G6426-MONOMER","","P75793","PFLF_ECOLI","reviewed","Putative formate acetyltransferase 3 (EC 2.3.1.54) (Pyruvate formate-lyase 3)","Escherichia coli (strain K12)"
+"4","ECOCYC:G7291-MONOMER","","P76556","EUTP_ECOLI","reviewed","Ethanolamine utilization protein EutP","Escherichia coli (strain K12)"
+"5","ECOCYC:EG10116-MONOMER","","P11989","BGLG_ECOLI","reviewed","Cryptic beta-glucoside bgl operon antiterminator","Escherichia coli (strain K12)"
+"6","ECOCYC:ADHE-MONOMER","","P0A9Q7","ADHE_ECOLI","reviewed","Aldehyde-alcohol dehydrogenase [Includes: Alcohol dehydrogenase (ADH) (EC 1.1.1.1); Acetaldehyde dehydrogenase [acetylating] (ACDH) (EC 1.2.1.10); Pyruvate-formate-lyase deactivase (PFL deactivase)]","Escherichia coli (strain K12)"
+"7","ECOCYC:PD04028","","P0ACN7","CYTR_ECOLI","reviewed","HTH-type transcriptional repressor CytR","Escherichia coli (strain K12)"
+"8","ECOCYC:EG12111-MONOMER","","P0ADA3","NLPD_ECOLI","reviewed","Murein hydrolase activator NlpD","Escherichia coli (strain K12)"
+"9","ECOCYC:PEPSYNTH-MONOMER","","P23538","PPSA_ECOLI","reviewed","Phosphoenolpyruvate synthase (PEP synthase) (EC 2.7.9.2) (Pyruvate, water dikinase)","Escherichia coli (strain K12)"
+"10","ECOCYC:G7362-MONOMER","","P52126","YFJK_ECOLI","reviewed","Uncharacterized protein YfjK","Escherichia coli (strain K12)"
+"11","ECOCYC:PD00197","","P0A9E5","FNR_ECOLI","reviewed","Fumarate and nitrate reduction regulatory protein","Escherichia coli (strain K12)"
+"12","ECOCYC:G7630-MONOMER","","P0ACK2","AGAR_ECOLI","reviewed","Putative aga operon transcriptional repressor","Escherichia coli (strain K12)"
+"13","ECOCYC:NUOL-MONOMER","","P33607","NUOL_ECOLI","reviewed","NADH-quinone oxidoreductase subunit L (EC 1.6.5.11) (NADH dehydrogenase I subunit L) (NDH-1 subunit L) (NUO12)","Escherichia coli (strain K12)"
+"14","ECOCYC:G7378-MONOMER","","P52139","YFJX_ECOLI","reviewed","Uncharacterized protein YfjX","Escherichia coli (strain K12)"
+"15","ECOCYC:EG10467-MONOMER","","P0ACF4","DBHB_ECOLI","reviewed","DNA-binding protein HU-beta (HU-1) (NS1)","Escherichia coli (strain K12)"
+"16","ECOCYC:EG11676-MONOMER","","P0A7B8","HSLV_ECOLI","reviewed","ATP-dependent protease subunit HslV (EC 3.4.25.2) (Heat shock protein HslV)","Escherichia coli (strain K12)"
+"17","ECOCYC:NUOB-MONOMER","","P0AFC7","NUOB_ECOLI","reviewed","NADH-quinone oxidoreductase subunit B (EC 1.6.5.11) (NADH dehydrogenase I subunit B) (NDH-1 subunit B) (NUO2)","Escherichia coli (strain K12)"
+"18","ECOCYC:EG11287-MONOMER","","P25728","YGBA_ECOLI","reviewed","Uncharacterized protein YgbA","Escherichia coli (strain K12)"
+"19","ECOCYC:EG12254-MONOMER","","P37648","YHJJ_ECOLI","reviewed","Protein YhjJ","Escherichia coli (strain K12)"
+"20","ECOCYC:MALATE-DEHASE-MONOMER","","P61889","MDH_ECOLI","reviewed","Malate dehydrogenase (EC 1.1.1.37)","Escherichia coli (strain K12)"
+"21","ECOCYC:G6835-MONOMER","","P76165","YDFX_ECOLI","reviewed","Uncharacterized protein YdfX","Escherichia coli (strain K12)"
+"22","ECOCYC:PD00266","","P0AF20","NAGC_ECOLI","reviewed","N-acetylglucosamine repressor","Escherichia coli (strain K12)"
+"23","ECOCYC:EG10436-MONOMER","","P0ABC7","HFLK_ECOLI","reviewed","Modulator of FtsH protease HflK","Escherichia coli (strain K12)"
+"24","ECOCYC:EG11910-MONOMER","","P32674","PFLD_ECOLI","reviewed","Formate acetyltransferase 2 (EC 2.3.1.54) (Pyruvate formate-lyase 2)","Escherichia coli (strain K12)"
+"25","ECOCYC:G6863-MONOMER","","P0ACX0","YDGC_ECOLI","reviewed","Inner membrane protein YdgC","Escherichia coli (strain K12)"
+"26","ECOCYC:PD00222","","P09378","RHAR_ECOLI","reviewed","HTH-type transcriptional activator RhaR (L-rhamnose operon transcriptional activator RhaR)","Escherichia coli (strain K12)"
+"27","ECOCYC:EG12042-MONOMER","","P0AD21","YEJG_ECOLI","reviewed","Uncharacterized protein YejG","Escherichia coli (strain K12)"
+"28","ECOCYC:FUM-MEMB2","","P0A8Q3","FRDD_ECOLI","reviewed","Fumarate reductase subunit D (Fumarate reductase 13 kDa hydrophobic protein)","Escherichia coli (strain K12)"
+"29","ECOCYC:G6897-MONOMER","","P77147","YDHT_ECOLI","reviewed","Uncharacterized protein YdhT","Escherichia coli (strain K12)"
+"30","ECOCYC:PD00413","","P07604","TYRR_ECOLI","reviewed","Transcriptional regulatory protein TyrR","Escherichia coli (strain K12)"
+"31","ECOCYC:EG12323-MONOMER","","P37014","RPNE_ECOLI","reviewed","Inactive recombination-promoting nuclease-like protein RpnE","Escherichia coli (strain K12)"
+"32","ECOCYC:G7182-MONOMER","","P76486","YFBP_ECOLI","reviewed","Uncharacterized protein YfbP","Escherichia coli (strain K12)"
+"33","ECOCYC:PHOQ-MONOMER","","P23837","PHOQ_ECOLI","reviewed","Sensor protein PhoQ (EC 2.7.13.3) (EC 3.1.3.-) (Sensor histidine protein kinase/phosphatase PhoQ)","Escherichia coli (strain K12)"
+"34","ECOCYC:G6995-MONOMER","","P67338","YOAH_ECOLI","reviewed","UPF0181 protein YoaH","Escherichia coli (strain K12)"
+"35","ECOCYC:E2P-MONOMER","","P06959","ODP2_ECOLI","reviewed","Dihydrolipoyllysine-residue acetyltransferase component of pyruvate dehydrogenase complex (EC 2.3.1.12) (Dihydrolipoamide acetyltransferase component of pyruvate dehydrogenase complex) (E2)","Escherichia coli (strain K12)"
+"36","ECOCYC:G7225-MONOMER","","P76509","YFDM_ECOLI","reviewed","Putative uncharacterized protein YfdM","Escherichia coli (strain K12)"
+"37","ECOCYC:CHEB-MONOMER","","P07330","CHEB_ECOLI","reviewed","Chemotaxis response regulator protein-glutamate methylesterase (EC 3.1.1.61)","Escherichia coli (strain K12)"
+"38","ECOCYC:EG11806-MONOMER","","P33218","YEBE_ECOLI","reviewed","Inner membrane protein YebE","Escherichia coli (strain K12)"
+"39","ECOCYC:SDH-MEMB1","","P69054","DHSC_ECOLI","reviewed","Succinate dehydrogenase cytochrome b556 subunit (Cytochrome b-556)","Escherichia coli (strain K12)"
+"40","ECOCYC:EG11432-MONOMER","","P27238","YFED_ECOLI","reviewed","Uncharacterized protein YfeD","Escherichia coli (strain K12)"
+"41","ECOCYC:ATOS-MONOMER","","Q06067","ATOS_ECOLI","reviewed","Signal transduction histidine-protein kinase AtoS (EC 2.7.13.3)","Escherichia coli (strain K12)"
+"42","ECOCYC:G7036-MONOMER","","P46887","YECH_ECOLI","reviewed","Uncharacterized protein YecH","Escherichia coli (strain K12)"
+"43","ECOCYC:BARA-MONOMER","","P0AEC5","BARA_ECOLI","reviewed","Signal transduction histidine-protein kinase BarA (EC 2.7.13.3)","Escherichia coli (strain K12)"
+"44","ECOCYC:EG11891-MONOMER","","P33011","YEEA_ECOLI","reviewed","Inner membrane protein YeeA","Escherichia coli (strain K12)"
+"45","ECOCYC:EG11761-MONOMER","","P31992","PPTA_ECOLI","reviewed","Tautomerase PptA (EC 5.3.2.-)","Escherichia coli (strain K12)"
+"46","ECOCYC:UHPA-MONOMER","","P0AGA6","UHPA_ECOLI","reviewed","Transcriptional regulatory protein UhpA","Escherichia coli (strain K12)"
+"47","ECOCYC:EG11991-MONOMER","","P33344","YEHE_ECOLI","reviewed","Uncharacterized protein YehE","Escherichia coli (strain K12)"
+"48","ECOCYC:EG10155-MONOMER","","P17315","CIRA_ECOLI","reviewed","Colicin I receptor","Escherichia coli (strain K12)"
+"49","ECOCYC:BASR-MONOMER","","P30843","BASR_ECOLI","reviewed","Transcriptional regulatory protein BasR","Escherichia coli (strain K12)"
+"50","ECOCYC:EG12005-MONOMER","","P33355","YEHS_ECOLI","reviewed","Uncharacterized protein YehS","Escherichia coli (strain K12)"
+"51","ECOCYC:EG12875-MONOMER","","P46130","YBHC_ECOLI","reviewed","Putative acyl-CoA thioester hydrolase YbhC (EC 3.1.2.-)","Escherichia coli (strain K12)"
+"52","ECOCYC:G6159-MONOMER","","P0AAL9","YKGJ_ECOLI","reviewed","Uncharacterized protein YkgJ","Escherichia coli (strain K12)"
+"53","ECOCYC:TREHALAPERI-MONOMER","","P13482","TREA_ECOLI","reviewed","Periplasmic trehalase (EC 3.2.1.28) (Alpha,alpha-trehalase) (Alpha,alpha-trehalose glucohydrolase) (Tre37A)","Escherichia coli (strain K12)"
+"54","ECOCYC:EG12196-MONOMER","","P36661","YCCE_ECOLI","reviewed","Uncharacterized protein YccE (ORF-D)","Escherichia coli (strain K12)"
+"55","ECOCYC:G6210-MONOMER","","Q47534","YAIO_ECOLI","reviewed","Outer membrane protein YaiO","Escherichia coli (strain K12)"
+"56","ECOCYC:PYRUVOXID-MONOMER","","P07003","POXB_ECOLI","reviewed","Pyruvate dehydrogenase [ubiquinone] (EC 1.2.5.1) (Pyruvate oxidase) (POX) [Cleaved into: Alpha-peptide]","Escherichia coli (strain K12)"
+"57","ECOCYC:G7107-MONOMER","","P0A930","WZA_ECOLI","reviewed","Putative polysaccharide export protein wza","Escherichia coli (strain K12)"
+"58","ECOCYC:EG12159-MONOMER","","P0C037","PPNP_ECOLI","reviewed","Pyrimidine/purine nucleoside phosphorylase (EC 2.4.2.1) (EC 2.4.2.2) (Adenosine phosphorylase) (Cytidine phosphorylase) (Guanosine phosphorylase) (EC 2.4.2.15) (Inosine phosphorylase) (Thymidine phosphorylase) (EC 2.4.2.4) (Uridine phosphorylase) (EC 2.4.2.3) (Xanthosine phosphorylase)","Escherichia coli (strain K12)"
+"59","ECOCYC:TRANSKETOI-MONOMER","","P27302","TKT1_ECOLI","reviewed","Transketolase 1 (TK 1) (EC 2.2.1.1)","Escherichia coli (strain K12)"
+"60","ECOCYC:G6572-MONOMER","","P75955","YCFT_ECOLI","reviewed","Inner membrane protein YcfT","Escherichia coli (strain K12)"
+"61","ECOCYC:EG11035-MONOMER","","P0A927","TSX_ECOLI","reviewed","Nucleoside-specific channel-forming protein tsx","Escherichia coli (strain K12)"
+"62","ECOCYC:G7595-MONOMER","","P50466","AER_ECOLI","reviewed","Aerotaxis receptor","Escherichia coli (strain K12)"
+"63","ECOCYC:EG11126-MONOMER","","P21362","YCIF_ECOLI","reviewed","Protein YciF","Escherichia coli (strain K12)"
+"64","ECOCYC:G6398-MONOMER","","P52696","YBHD_ECOLI","reviewed","Uncharacterized HTH-type transcriptional regulator YbhD","Escherichia coli (strain K12)"
+"65","ECOCYC:EG12851-MONOMER","","P0AAT9","YBEL_ECOLI","reviewed","Uncharacterized protein YbeL","Escherichia coli (strain K12)"
+"66","ECOCYC:G6663-MONOMER","","P76049","YCJY_ECOLI","reviewed","Uncharacterized protein YcjY","Escherichia coli (strain K12)"
+"67","ECOCYC:G6853-MONOMER","","P77559","YNFL_ECOLI","reviewed","Uncharacterized HTH-type transcriptional regulator YnfL","Escherichia coli (strain K12)"
+"68","ECOCYC:EG11522-MONOMER","","P0AAU5","YBFB_ECOLI","reviewed","Uncharacterized protein YbfB","Escherichia coli (strain K12)"
+"69","ECOCYC:G6319-MONOMER","","P0ACZ8","CUSR_ECOLI","reviewed","Transcriptional regulatory protein CusR","Escherichia coli (strain K12)"
+"70","ECOCYC:G6683-MONOMER","","P76065","YDAU_ECOLI","reviewed","Uncharacterized protein YdaU","Escherichia coli (strain K12)"
+"71","ECOCYC:EG12107-MONOMER","","P36647","PPDD_ECOLI","reviewed","Prepilin peptidase-dependent protein D","Escherichia coli (strain K12)"
+"72","ECOCYC:EG11579-MONOMER","","P30176","RIBX_ECOLI","reviewed","N-glycosidase YbiA (EC 3.2.2.-) (Riboflavin biosynthesis intermediates N-glycosidase)","Escherichia coli (strain K12)"
+"73","ECOCYC:G6730-MONOMER","","P76093","YNBD_ECOLI","reviewed","Uncharacterized protein YnbD","Escherichia coli (strain K12)"
+"74","ECOCYC:THIOESTERI-MONOMER","","P0ADA1","TESA_ECOLI","reviewed","Thioesterase 1/protease 1/lysophospholipase L1 (TAP) (Acyl-CoA thioesterase 1) (TESA) (EC 3.1.2.2) (Acyl-CoA thioesterase I) (Arylesterase) (EC 3.1.1.2) (Lysophospholipase L1) (EC 3.1.1.5) (Oleoyl-[acyl-carrier-protein] hydrolase) (EC 3.1.2.14) (Phospholipid degradation C) (Pldc) (Protease 1) (EC 3.4.21.-) (Protease I) (Thioesterase I/protease I) (TEP-I)","Escherichia coli (strain K12)"
+"75","ECOCYC:G6448-MONOMER","","P0AAZ0","YBJO_ECOLI","reviewed","Inner membrane protein YbjO","Escherichia coli (strain K12)"
+"76","ECOCYC:EG11549-MONOMER","","P29745","PEPT_ECOLI","reviewed","Peptidase T (EC 3.4.11.4) (Aminotripeptidase) (Tripeptidase) (Tripeptide aminopeptidase)","Escherichia coli (strain K12)"
+"77","ECOCYC:G6541-MONOMER","","P75915","YCDY_ECOLI","reviewed","Chaperone protein YcdY","Escherichia coli (strain K12)"
+"78","ECOCYC:EG10968-MONOMER","","P08395","SPPA_ECOLI","reviewed","Protease 4 (EC 3.4.21.-) (Endopeptidase IV) (Protease IV) (Signal peptide peptidase)","Escherichia coli (strain K12)"
+"79","ECOCYC:G7292-MONOMER","","P63746","EUTS_ECOLI","reviewed","Ethanolamine utilization protein EutS","Escherichia coli (strain K12)"
+"80","ECOCYC:COBALADENOSYLTRANS-MONOMER","","P0A9H5","BTUR_ECOLI","reviewed","Cob(I)yrinic acid a,c-diamide adenosyltransferase (EC 2.5.1.17) (Cob(I)alamin adenosyltransferase) (Corrinoid adenosyltransferase)","Escherichia coli (strain K12)"
+"81","ECOCYC:EG10580-MONOMER","","P0C0T5","MEPA_ECOLI","reviewed","Penicillin-insensitive murein endopeptidase (EC 3.4.24.-) (D-alanyl-D-alanine-endopeptidase) (DD-endopeptidase)","Escherichia coli (strain K12)"
+"82","ECOCYC:ACONITASE-MONOMER","","P25516","ACNA_ECOLI","reviewed","Aconitate hydratase A (ACN) (Aconitase) (EC 4.2.1.3) (Iron-responsive protein-like) (IRP-like) (RNA-binding protein) (Stationary phase enzyme)","Escherichia coli (strain K12)"
+"83","ECOCYC:PD01196","","P0ACK5","DEOR_ECOLI","reviewed","Deoxyribose operon repressor","Escherichia coli (strain K12)"
+"84","ECOCYC:EG10488-MONOMER","","P10423","IAP_ECOLI","reviewed","Alkaline phosphatase isozyme conversion protein (EC 3.4.11.-)","Escherichia coli (strain K12)"
+"85","ECOCYC:G7363-MONOMER","","P52127","YFJL_ECOLI","reviewed","Uncharacterized protein YfjL","Escherichia coli (strain K12)"
+"86","ECOCYC:PD00444","","P0ACK8","FUCR_ECOLI","reviewed","L-fucose operon activator","Escherichia coli (strain K12)"
+"87","ECOCYC:EG10955-MONOMER","","P15373","PRLF_ECOLI","reviewed","Antitoxin PrlF (HtrA suppressor protein SohA)","Escherichia coli (strain K12)"
+"88","ECOCYC:NUOK-MONOMER","","P0AFE4","NUOK_ECOLI","reviewed","NADH-quinone oxidoreductase subunit K (EC 1.6.5.11) (NADH dehydrogenase I subunit K) (NDH-1 subunit K) (NUO11)","Escherichia coli (strain K12)"
+"89","ECOCYC:G7381-MONOMER","","Q46953","YPJF_ECOLI","reviewed","Probable toxin YpjF","Escherichia coli (strain K12)"
+"90","ECOCYC:EG10490-MONOMER","","P0A8S1","ARGP_ECOLI","reviewed","HTH-type transcriptional regulator ArgP (Inhibitor of chromosome initiation) (OriC replication inhibitor)","Escherichia coli (strain K12)"
+"91","ECOCYC:EG11862-MONOMER","","P32153","FRVX_ECOLI","reviewed","Putative aminopeptidase FrvX (EC 3.4.11.-)","Escherichia coli (strain K12)"
+"92","ECOCYC:NUOA-MONOMER","","P0AFC3","NUOA_ECOLI","reviewed","NADH-quinone oxidoreductase subunit A (EC 1.6.5.11) (NADH dehydrogenase I subunit A) (NDH-1 subunit A) (NUO1)","Escherichia coli (strain K12)"
+"93","ECOCYC:EG12707-MONOMER","","P46141","YGBE_ECOLI","reviewed","Inner membrane protein YgbE","Escherichia coli (strain K12)"
+"94","ECOCYC:EG11441-MONOMER","","P27298","OPDA_ECOLI","reviewed","Oligopeptidase A (EC 3.4.24.70)","Escherichia coli (strain K12)"
+"95","ECOCYC:G7732-MONOMER","","P45549","YHFW_ECOLI","reviewed","Uncharacterized protein YhfW","Escherichia coli (strain K12)"
+"96","ECOCYC:EG11300-MONOMER","","P0ACW8","YDFA_ECOLI","reviewed","Uncharacterized protein YdfA","Escherichia coli (strain K12)"
+"97","ECOCYC:EG10435-MONOMER","","P0ABC3","HFLC_ECOLI","reviewed","Modulator of FtsH protease HflC","Escherichia coli (strain K12)"
+"98","ECOCYC:G6869-MONOMER","","P64467","CNU_ECOLI","reviewed","OriC-binding nucleoid-associated protein (H-NS/StpA-binding protein 2) (Transcription modulator YdgT)","Escherichia coli (strain K12)"
+"99","ECOCYC:G7152-MONOMER","","P76462","YFAP_ECOLI","reviewed","Uncharacterized protein YfaP","Escherichia coli (strain K12)"
+"100","ECOCYC:FUM-MEMB1","","P0A8Q0","FRDC_ECOLI","reviewed","Fumarate reductase subunit C (Fumarate reductase 15 kDa hydrophobic protein)","Escherichia coli (strain K12)"
+"101","ECOCYC:G6900-MONOMER","","P77564","YDHW_ECOLI","reviewed","Uncharacterized protein YdhW","Escherichia coli (strain K12)"
+"102","ECOCYC:G6867-MONOMER","","P0ACT6","UIDR_ECOLI","reviewed","HTH-type transcriptional regulator UidR (Gus operon repressor) (Uid operon repressor)","Escherichia coli (strain K12)"
+"103","ECOCYC:G6345-MONOMER","","P77510","DPIB_ECOLI","reviewed","Sensor histidine kinase DpiB (EC 2.7.13.3) (Sensor histidine kinase CitA)","Escherichia coli (strain K12)"
+"104","ECOCYC:G7185-MONOMER","","P76491","5DNU_ECOLI","reviewed","5-deoxynucleotidase YfbR (EC 3.1.3.89) (5-deoxyribonucleotidase) (Nucleoside 5-monophosphate phosphohydrolase)	Escherichia coli (strain K12)
+ECOCYC:PHOP-MONOMER		P23836	PHOP_ECOLI	reviewed	Transcriptional regulatory protein PhoP	Escherichia coli (strain K12)
+ECOCYC:G6998-MONOMER		P67601	YOBD_ECOLI	reviewed	UPF0266 membrane protein YobD	Escherichia coli (strain K12)
+ECOCYC:ACONITATEDEHYDRB-MONOMER		P36683	ACNB_ECOLI	reviewed	Aconitate hydratase B (ACN) (Aconitase) (EC 4.2.1.3) ((2R,3S)-2-methylisocitrate dehydratase) ((2S,3R)-3-hydroxybutane-1,2,3-tricarboxylate dehydratase) (2-methyl-cis-aconitate hydratase) (EC 4.2.1.99) (Iron-responsive protein-like) (IRP-like) (RNA-binding protein)	Escherichia coli (strain K12)
+ECOCYC:G7227-MONOMER		P0AD35	YFDO_ECOLI	reviewed	Putative uncharacterized protein YfdO	Escherichia coli (strain K12)
+ECOCYC:CHEA-SMALL,ECOCYC:PROTEIN-CHEA	,	P07363	CHEA_ECOLI	reviewed	Chemotaxis protein CheA (EC 2.7.13.3)	Escherichia coli (strain K12)
+ECOCYC:EG11808-MONOMER		P0ACY9	YEBG_ECOLI	reviewed	Uncharacterized protein YebG	Escherichia coli (strain K12)
+ECOCYC:SDH-MEMB2		P0AC44	DHSD_ECOLI	reviewed	Succinate dehydrogenase hydrophobic membrane anchor subunit	Escherichia coli (strain K12)
+ECOCYC:G7260-MONOMER		Q47702	YFEK_ECOLI	reviewed	Uncharacterized protein YfeK	Escherichia coli (strain K12)
+ECOCYC:ATOC-MONOMER		Q06065	ATOC_ECOLI	reviewed	Acetoacetate metabolism regulatory protein AtoC (Ornithine decarboxylase antizyme) (Ornithine/arginine decarboxylase inhibitor)	Escherichia coli (strain K12)
+ECOCYC:EG12861-MONOMER		P0AD07	YECF_ECOLI	reviewed	Uncharacterized protein YecF	Escherichia coli (strain K12)
+ECOCYC:G7575-MONOMER		P52076	QSEB_ECOLI	reviewed	Transcriptional regulatory protein QseB	Escherichia coli (strain K12)
+ECOCYC:EG11895-MONOMER		P33015	YEEE_ECOLI	reviewed	UPF0394 inner membrane protein YeeE	Escherichia coli (strain K12)
+ECOCYC:G6773-MONOMER		P77519	YDDL_ECOLI	reviewed	Putative uncharacterized protein YddL	Escherichia coli (strain K12)
+ECOCYC:PROTEIN-NRI		P0AFB8	NTRC_ECOLI	reviewed	Nitrogen regulation protein NR(I)	Escherichia coli (strain K12)
+ECOCYC:EG11995-MONOMER		P33346	YEHI_ECOLI	reviewed	Uncharacterized protein YehI	Escherichia coli (strain K12)
+ECOCYC:G6826-MONOMER		P76158	RZPQ_ECOLI	reviewed	Uncharacterized protein RzpQ	Escherichia coli (strain K12)
+ECOCYC:DCUR-MONOMER		P0AD01	DCUR_ECOLI	reviewed	Transcriptional regulatory protein DcuR	Escherichia coli (strain K12)
+ECOCYC:G6531-MONOMER		P69434	PGAA_ECOLI	reviewed	Poly-beta-1,6-N-acetyl-D-glucosamine export protein (PGA export protein) (Poly-beta-1,6-GlcNAc export protein)	Escherichia coli (strain K12)
+ECOCYC:MANNPGUANYLTRANGDP-MONOMER		P24174	MANC_ECOLI	reviewed	Mannose-1-phosphate guanylyltransferase (EC 2.7.7.13) (GDP-mannose pyrophosphorylase) (GMP) (GMPP)	Escherichia coli (strain K12)
+ECOCYC:EG12703-MONOMER		P0AB14	YCCJ_ECOLI	reviewed	Uncharacterized protein YccJ	Escherichia coli (strain K12)
+ECOCYC:EG10306-MONOMER		P16869	FHUE_ECOLI	reviewed	FhuE receptor (Outer-membrane receptor for Fe(III)-coprogen, Fe(III)-ferrioxamine B and Fe(III)-rhodotrulic acid)	Escherichia coli (strain K12)
+ECOCYC:G6215-MONOMER		Q47536	YAIP_ECOLI	reviewed	Uncharacterized glycosyltransferase YaiP (EC 2.4.-.-)	Escherichia coli (strain K12)
+ECOCYC:DLACTDEHYDROGNAD-MONOMER		P52643	LDHD_ECOLI	reviewed	D-lactate dehydrogenase (D-LDH) (EC 1.1.1.28) (Fermentative lactate dehydrogenase)	Escherichia coli (strain K12)
+ECOCYC:G6414-MONOMER		P75780	FIU_ECOLI	reviewed	Catecholate siderophore receptor Fiu (Ferric iron uptake protein) (TonB-dependent receptor Fiu)	Escherichia coli (strain K12)
+ECOCYC:EG11095-MONOMER		P21515	ACPH_ECOLI	reviewed	Acyl carrier protein phosphodiesterase (ACP phosphodiesterase) (EC 3.1.4.14)	Escherichia coli (strain K12)
+ECOCYC:G7639-MONOMER		P42915	YRAJ_ECOLI	reviewed	Outer membrane usher protein YraJ	Escherichia coli (strain K12)
+ECOCYC:G6284-MONOMER		P75713	ALLE_ECOLI	reviewed	(S)-ureidoglycine aminohydrolase (UGHY) (UGlyAH) (EC 3.5.3.26)	Escherichia coli (strain K12)
+ECOCYC:EG11988-MONOMER		P33341	YEHB_ECOLI	reviewed	Outer membrane usher protein YehB	Escherichia coli (strain K12)
+ECOCYC:G6615-MONOMER		P76002	PLIG_ECOLI	reviewed	Inhibitor of g-type lysozyme	Escherichia coli (strain K12)
+ECOCYC:EG12448-MONOMER		P37325	YBCH_ECOLI	reviewed	Uncharacterized protein YbcH	Escherichia coli (strain K12)
+ECOCYC:TAP-MONOMER		P07018	MCP4_ECOLI	reviewed	Methyl-accepting chemotaxis protein IV (MCP-IV) (Dipeptide chemoreceptor protein)	Escherichia coli (strain K12)
+ECOCYC:EG11127-MONOMER		P21361	YCIG_ECOLI	reviewed	Uncharacterized protein YciG	Escherichia coli (strain K12)
+ECOCYC:G6352-MONOMER		P77627	YBER_ECOLI	reviewed	Uncharacterized protein YbeR	Escherichia coli (strain K12)
+ECOCYC:G6128-MONOMER		P75678	YKFA_ECOLI	reviewed	Uncharacterized protein YkfA	Escherichia coli (strain K12)
+ECOCYC:G6668-MONOMER		P64445	YNAJ_ECOLI	reviewed	Uncharacterized protein YnaJ	Escherichia coli (strain K12)
+ECOCYC:EG10210-MONOMER		P21693	DBPA_ECOLI	reviewed	ATP-dependent RNA helicase DbpA (EC 3.6.4.13)	Escherichia coli (strain K12)
+ECOCYC:EG11523-MONOMER		P28915	YBFC_ECOLI	reviewed	Uncharacterized protein YbfC	Escherichia coli (strain K12)
+ECOCYC:ENVZ-MONOMER		P0AEJ4	ENVZ_ECOLI	reviewed	Osmolarity sensor protein EnvZ (EC 2.7.13.3)	Escherichia coli (strain K12)
+ECOCYC:EG10605-MONOMER		P02919	PBPB_ECOLI	reviewed	Penicillin-binding protein 1B (PBP-1b) (PBP1b) (Murein polymerase) [Includes: Penicillin-insensitive transglycosylase (EC 2.4.1.129) (Peptidoglycan TGase) (Peptidoglycan glycosyltransferase); Penicillin-sensitive transpeptidase (EC 3.4.16.4) (DD-transpeptidase)]	Escherichia coli (strain K12)
+ECOCYC:EG12422-MONOMER		P0AAX3	YBIJ_ECOLI	reviewed	Uncharacterized protein YbiJ	Escherichia coli (strain K12)
+ECOCYC:G7321-MONOMER		P76576	YFGM_ECOLI	reviewed	UPF0070 protein YfgM	Escherichia coli (strain K12)
+ECOCYC:EG12110-MONOMER		P34209	YDCF_ECOLI	reviewed	Protein YdcF	Escherichia coli (strain K12)
+ECOCYC:G6459-MONOMER		P75828	YBJD_ECOLI	reviewed	Uncharacterized protein YbjD	Escherichia coli (strain K12)
+ECOCYC:G7384-MONOMER		P76612	YPJB_ECOLI	reviewed	Uncharacterized protein YpjB	Escherichia coli (strain K12)
+ECOCYC:G6747-MONOMER		P64459	YNCJ_ECOLI	reviewed	Uncharacterized protein YncJ	Escherichia coli (strain K12)
+ECOCYC:PD00230		P06134	ADA_ECOLI	reviewed	Bifunctional transcriptional activator/DNA repair enzyme Ada (Regulatory protein of adaptive response) [Includes: Methylphosphotriester-DNA--protein-cysteine S-methyltransferase (EC 2.1.1.n11) (Methylphosphotriester-DNA methyltransferase); Methylated-DNA--protein-cysteine methyltransferase (EC 2.1.1.63) (O6-methylguanine-DNA alkyltransferase)]	Escherichia coli (strain K12)
+ECOCYC:EG10462-MONOMER		P23894	HTPX_ECOLI	reviewed	Protease HtpX (EC 3.4.24.-) (Heat shock protein HtpX)	Escherichia coli (strain K12)
+ECOCYC:PFLACTENZ-MONOMER		P0A9N4	PFLA_ECOLI	reviewed	Pyruvate formate-lyase 1-activating enzyme (EC 1.97.1.4) (Formate-C-acetyltransferase-activating enzyme 1) (PFL-activating enzyme 1)	Escherichia coli (strain K12)
+ECOCYC:G7295-MONOMER		P76559	YPFG_ECOLI	reviewed	Uncharacterized protein YpfG	Escherichia coli (strain K12)
+ECOCYC:PD00436		P23890	CADC_ECOLI	reviewed	Transcriptional activator CadC	Escherichia coli (strain K12)
+ECOCYC:G7248-MONOMER		P76524	YPDF_ECOLI	reviewed	Aminopeptidase YpdF (EC 3.4.11.-)	Escherichia coli (strain K12)
+ECOCYC:EG12857-MONOMER		P46126	YFIM_ECOLI	reviewed	Uncharacterized protein YfiM	Escherichia coli (strain K12)
+ECOCYC:PD00297		P46068	DSDC_ECOLI	reviewed	HTH-type transcriptional regulator DsdC (D-serine deaminase activator)	Escherichia coli (strain K12)
+ECOCYC:EG10786-MONOMER		P05458	PTRA_ECOLI	reviewed	Protease 3 (EC 3.4.24.55) (Pitrilysin) (Protease III) (Protease pi)	Escherichia coli (strain K12)
+ECOCYC:GLU6PDEHYDROG-MONOMER		P0AC53	G6PD_ECOLI	reviewed	Glucose-6-phosphate 1-dehydrogenase (G6PD) (EC 1.1.1.49) [Cleaved into: Extracellular death factor (EDF)]	Escherichia coli (strain K12)
+ECOCYC:G7364-MONOMER		P52128	YFJM_ECOLI	reviewed	Uncharacterized protein YfjM	Escherichia coli (strain K12)
+ECOCYC:PD03028		P03024	GALR_ECOLI	reviewed	HTH-type transcriptional regulator GalR (Galactose operon repressor)	Escherichia coli (strain K12)
+ECOCYC:G7652-MONOMER		P45527	YHBU_ECOLI	reviewed	Uncharacterized protease YhbU (EC 3.4.-.-)	Escherichia coli (strain K12)
+ECOCYC:NUOJ-MONOMER		P0AFE0	NUOJ_ECOLI	reviewed	NADH-quinone oxidoreductase subunit J (EC 1.6.5.11) (NADH dehydrogenase I subunit J) (NDH-1 subunit J) (NUO10)	Escherichia coli (strain K12)
+ECOCYC:G7891-MONOMER		P39343	IDNR_ECOLI	reviewed	HTH-type transcriptional regulator IdnR (L-idonate regulatory protein)	Escherichia coli (strain K12)
+ECOCYC:EG10698-MONOMER		P21165	PEPQ_ECOLI	reviewed	Xaa-Pro dipeptidase (X-Pro dipeptidase) (EC 3.4.13.9) (Imidodipeptidase) (Proline dipeptidase) (Prolidase)	Escherichia coli (strain K12)
+ECOCYC:GLUCOKIN-MONOMER		P0A6V8	GLK_ECOLI	reviewed	Glucokinase (EC 2.7.1.2) (Glucose kinase)	Escherichia coli (strain K12)
+ECOCYC:PD00208		P0ACH8	MELR_ECOLI	reviewed	Melibiose operon regulatory protein	Escherichia coli (strain K12)
+ECOCYC:YHHO-MONOMER		P37617	ZNTA_ECOLI	reviewed	Zinc/cadmium/lead-transporting P-type ATPase (EC 3.6.3.-) (EC 3.6.3.3) (EC 3.6.3.5) (Pb(II)/Cd(II)/Zn(II)-translocating ATPase) (Zn(2+)/Cd(2+)/Pb(2+) export ATPase)	Escherichia coli (strain K12)
+ECOCYC:RIBULP3EPIM-MONOMER		P0AG07	RPE_ECOLI	reviewed	Ribulose-phosphate 3-epimerase (EC 5.1.3.1) (Pentose-5-phosphate 3-epimerase) (PPE) (R5P3E)	Escherichia coli (strain K12)
+ECOCYC:EG11302-MONOMER		P21418	YDFC_ECOLI	reviewed	Uncharacterized protein YdfC	Escherichia coli (strain K12)
+ECOCYC:PD00474		P0A9G2	NHAR_ECOLI	reviewed	Transcriptional activator protein NhaR (Na(+)/H(+) antiporter regulatory protein)	Escherichia coli (strain K12)
+ECOCYC:EG10694-MONOMER		P68767	AMPA_ECOLI	reviewed	Cytosol aminopeptidase (EC 3.4.11.1) (Aminopeptidase A/I) (Leucine aminopeptidase) (LAP) (EC 3.4.11.10) (Leucyl aminopeptidase)	Escherichia coli (strain K12)
+ECOCYC:PEPCARBOX-MONOMER		P00864	CAPP_ECOLI	reviewed	Phosphoenolpyruvate carboxylase (PEPC) (PEPCase) (EC 4.1.1.31)	Escherichia coli (strain K12)
+ECOCYC:G6870-MONOMER		P76180	YDGK_ECOLI	reviewed	Inner membrane protein YdgK	Escherichia coli (strain K12)
+ECOCYC:PD04132		P0ACS2	SOXR_ECOLI	reviewed	Redox-sensitive transcriptional activator SoxR	Escherichia coli (strain K12)
+ECOCYC:G7153-MONOMER		P76463	YFAQ_ECOLI	reviewed	Uncharacterized protein YfaQ	Escherichia coli (strain K12)
+ECOCYC:FUM-FE-S		P0AC47	FRDB_ECOLI	reviewed	Fumarate reductase iron-sulfur subunit (EC 1.3.5.1)	Escherichia coli (strain K12)
+ECOCYC:G6911-MONOMER		P64476	YDIH_ECOLI	reviewed	Uncharacterized protein YdiH	Escherichia coli (strain K12)
+ECOCYC:EG20249-MONOMER		P39161	UXUR_ECOLI	reviewed	Uxu operon transcriptional regulator	Escherichia coli (strain K12)
+ECOCYC:G7158-MONOMER		P76469	RHMA_ECOLI	reviewed	2-keto-3-deoxy-L-rhamnonate aldolase (KDR aldolase) (EC 4.1.2.53) (2-dehydro-3-deoxyrhamnonate aldolase) (2-keto-3-deoxy acid sugar aldolase)	Escherichia coli (strain K12)
+ECOCYC:G6346-MONOMER		P0AEF4	DPIA_ECOLI	reviewed	Transcriptional regulatory protein DpiA (Destabilizer of plasmid inheritance)	Escherichia coli (strain K12)
+ECOCYC:PD00521		P0ACP1	CRA_ECOLI	reviewed	Catabolite repressor/activator (Fructose repressor)	Escherichia coli (strain K12)
+ECOCYC:G7191-MONOMER		P65556	YFCD_ECOLI	reviewed	Uncharacterized Nudix hydrolase YfcD (EC 3.6.-.-)	Escherichia coli (strain K12)
+ECOCYC:NARL-MONOMER		P0AF28	NARL_ECOLI	reviewed	Nitrate/nitrite response regulator protein NarL	Escherichia coli (strain K12)
+ECOCYC:G7001-MONOMER		P64499	YEBO_ECOLI	reviewed	Uncharacterized protein YebO	Escherichia coli (strain K12)
+ECOCYC:G6198-MONOMER		P31660	PRPC_ECOLI	reviewed	2-methylcitrate synthase (2-MCS) (MCS) (EC 2.3.3.5) ((2S,3S)-2-methylcitrate synthase) (Citrate synthase) (EC 2.3.3.16)	Escherichia coli (strain K12)
+ECOCYC:G7229-MONOMER		P76513	YFDQ_ECOLI	reviewed	Uncharacterized protein YfdQ	Escherichia coli (strain K12)
+ECOCYC:EG11140-MONOMER		P0AED5	UVRY_ECOLI	reviewed	Response regulator UvrY	Escherichia coli (strain K12)
+ECOCYC:SDH-FLAVO		P0AC41	SDHA_ECOLI	reviewed	Succinate dehydrogenase flavoprotein subunit (EC 1.3.5.1)	Escherichia coli (strain K12)
+ECOCYC:G7267-MONOMER		P76537	YFEY_ECOLI	reviewed	Uncharacterized protein YfeY	Escherichia coli (strain K12)
+ECOCYC:EVGA-MONOMER		P0ACZ4	EVGA_ECOLI	reviewed	DNA-binding transcriptional activator EvgA	Escherichia coli (strain K12)
+ECOCYC:EG11659-MONOMER		P31063	YEDD_ECOLI	reviewed	Uncharacterized lipoprotein YedD	Escherichia coli (strain K12)
+ECOCYC:EG12658-MONOMER		P40719	QSEC_ECOLI	reviewed	Sensor protein QseC (EC 2.7.13.3)	Escherichia coli (strain K12)
+ECOCYC:G7112-MONOMER		P76396	YEGL_ECOLI	reviewed	Uncharacterized protein YegL	Escherichia coli (strain K12)
+ECOCYC:EG12713-MONOMER		P46136	YDDG_ECOLI	reviewed	Aromatic amino acid exporter YddG	Escherichia coli (strain K12)
+ECOCYC:PROTEIN-NRII		P0AFB5	NTRB_ECOLI	reviewed	Nitrogen regulation protein NR(II) (EC 2.7.13.3)	Escherichia coli (strain K12)
+ECOCYC:MONOMER0-2680		P33347	YEHK_ECOLI	reviewed	Uncharacterized protein YehK	Escherichia coli (strain K12)
+ECOCYC:G7457-MONOMER		P0A935	MLTA_ECOLI	reviewed	Membrane-bound lytic murein transglycosylase A (EC 4.2.2.n1) (Mlt38) (Murein hydrolase A)	Escherichia coli (strain K12)
+ECOCYC:G6125-MONOMER		P77162	YKFB_ECOLI	reviewed	Uncharacterized protein YkfB	Escherichia coli (strain K12)
+ECOCYC:DCUS-MONOMER		P0AEC8	DCUS_ECOLI	reviewed	Sensor histidine kinase DcuS (EC 2.7.13.3) (Fumarate sensor)	Escherichia coli (strain K12)
+ECOCYC:EG12288-MONOMER		P37681	YIAT_ECOLI	reviewed	Putative outer membrane protein YiaT	Escherichia coli (strain K12)
+ECOCYC:RBSB-MONOMER		P02925	RBSB_ECOLI	reviewed	Ribose import binding protein RbsB	Escherichia coli (strain K12)
+ECOCYC:G6216-MONOMER		P71311	YAIS_ECOLI	reviewed	Uncharacterized deacetylase YaiS (EC 3.-.-.-)	Escherichia coli (strain K12)
+ECOCYC:DLACTDEHYDROGFAD-MONOMER		P06149	DLD_ECOLI	reviewed	Quinone-dependent D-lactate dehydrogenase (EC 1.1.5.12) ((R)-lactate:quinone 2-oxidoreductase) (D-lactate dehydrogenase) (D-LDH) (Respiratory D-lactate dehydrogenase)	Escherichia coli (strain K12)
+ECOCYC:EG11117-MONOMER		P0AB26	YCEB_ECOLI	reviewed	Uncharacterized lipoprotein YceB	Escherichia coli (strain K12)
+ECOCYC:G6320-MONOMER		P77211	CUSC_ECOLI	reviewed	Cation efflux system protein CusC	Escherichia coli (strain K12)
+ECOCYC:EG11097-MONOMER		P0AAQ2	YAJD_ECOLI	reviewed	Putative HNH nuclease YajD (EC 3.1.-.-)	Escherichia coli (strain K12)
+ECOCYC:G7215-MONOMER		P76505	YFDF_ECOLI	reviewed	Uncharacterized protein YfdF	Escherichia coli (strain K12)
+ECOCYC:G6591-MONOMER		P75976	YMFL_ECOLI	reviewed	Uncharacterized protein YmfL	Escherichia coli (strain K12)
+ECOCYC:G7104-MONOMER		P77414	WCAA_ECOLI	reviewed	Putative colanic acid biosynthesis glycosyl transferase WcaA	Escherichia coli (strain K12)
+ECOCYC:G6623-MONOMER		P76010	YCGR_ECOLI	reviewed	Flagellar brake protein YcgR (Cyclic di-GMP binding protein YcgR)	Escherichia coli (strain K12)
+ECOCYC:G6321-MONOMER		P77214	CUSF_ECOLI	reviewed	Cation efflux system protein CusF	Escherichia coli (strain K12)
+ECOCYC:G6985-MONOMER		P76250	DMLR_ECOLI	reviewed	HTH-type transcriptional regulator DmlR (D-malate degradation protein R)	Escherichia coli (strain K12)
+ECOCYC:EG11083-MONOMER		P60240	RAPA_ECOLI	reviewed	RNA polymerase-associated protein RapA (EC 3.6.4.-) (ATP-dependent helicase HepA)	Escherichia coli (strain K12)
+ECOCYC:GLUC1PADENYLTRANS-MONOMER		P0A6V1	GLGC_ECOLI	reviewed	Glucose-1-phosphate adenylyltransferase (EC 2.7.7.27) (ADP-glucose pyrophosphorylase) (ADPGlc PPase) (ADP-glucose synthase)	Escherichia coli (strain K12)
+ECOCYC:G6688-MONOMER		P76068	YNAK_ECOLI	reviewed	Uncharacterized protein YnaK	Escherichia coli (strain K12)
+ECOCYC:EG10463-MONOMER		P0C0V0	DEGP_ECOLI	reviewed	Periplasmic serine endoprotease DegP (EC 3.4.21.107) (Heat shock protein DegP) (Protease Do)	Escherichia coli (strain K12)
+ECOCYC:EG12421-MONOMER		P41039	YBII_ECOLI	reviewed	Uncharacterized protein YbiI	Escherichia coli (strain K12)
+ECOCYC:EG11219-MONOMER		P0ACW4	YDCA_ECOLI	reviewed	Uncharacterized protein YdcA	Escherichia coli (strain K12)
+ECOCYC:EG10201-MONOMER		P0AEB2	DACA_ECOLI	reviewed	D-alanyl-D-alanine carboxypeptidase DacA (DD-carboxypeptidase) (DD-peptidase) (EC 3.4.16.4) (Beta-lactamase) (EC 3.5.2.6) (Penicillin-binding protein 5) (PBP-5)	Escherichia coli (strain K12)
+ECOCYC:G6473-MONOMER		P0AB03	YCBJ_ECOLI	reviewed	Uncharacterized protein YcbJ	Escherichia coli (strain K12)
+ECOCYC:G6749-MONOMER		P67697	HICB_ECOLI	reviewed	Antitoxin HicB	Escherichia coli (strain K12)
+ECOCYC:EG11057-MONOMER		P0AG11	UMUD_ECOLI	reviewed	Protein UmuD (EC 3.4.21.-) (DNA polymerase V) (Pol V) [Cleaved into: Protein UmuD]","Escherichia coli (strain K12)"
+"105","ECOCYC:EG11820-MONOMER","","P0A8X2","YCEI_ECOLI","reviewed","Protein YceI","Escherichia coli (strain K12)"

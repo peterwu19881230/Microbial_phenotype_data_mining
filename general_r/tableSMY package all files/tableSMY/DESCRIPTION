@@ -1,0 +1,10 @@
+Package: tableSMY
+Type: Package
+Title: A Simple Toolbox that Allows Quick Visualization of your Matrix or Dataframe
+Version: 1.0
+Date: 2019-03-26
+Author: Peter I-Fan Wu
+Maintainer: Peter I-Fan Wu <peterwu19881230@gmail.com>
+Description: This tools contain 5 functions that allow users to quickly visualize their matrix/dataframe/datatable and remove incomplete cells. 
+License: GPL
+Imports: utils, stats, grid, pheatmap 

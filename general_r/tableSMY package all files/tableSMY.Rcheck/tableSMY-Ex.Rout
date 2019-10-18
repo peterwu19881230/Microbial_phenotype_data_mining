@@ -1,0 +1,469 @@
+
+R version 3.5.2 (2018-12-20) -- "Eggshell Igloo"
+Copyright (C) 2018 The R Foundation for Statistical Computing
+Platform: x86_64-apple-darwin15.6.0 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> pkgname <- "tableSMY"
+> source(file.path(R.home("share"), "R", "examples-header.R"))
+> options(warn = 1)
+> base::assign(".ExTimings", "tableSMY-Ex.timings", pos = 'CheckExEnv')
+> base::cat("name\tuser\tsystem\telapsed\n", file=base::get(".ExTimings", pos = 'CheckExEnv'))
+> base::assign(".format_ptime",
++ function(x) {
++   if(!is.na(x[4L])) x[1L] <- x[1L] + x[4L]
++   if(!is.na(x[5L])) x[2L] <- x[2L] + x[5L]
++   options(OutDec = '.')
++   format(x[1L:3L], digits = 7L)
++ },
++ pos = 'CheckExEnv')
+> 
+> ### * </HEADER>
+> library('tableSMY')
+> 
+> base::assign(".oldSearch", base::search(), pos = 'CheckExEnv')
+> base::assign(".old_wd", base::getwd(), pos = 'CheckExEnv')
+> cleanEx()
+> nameEx("anyIncomplete")
+> ### * anyIncomplete
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: anyIncomplete
+> ### Title: Check Incompletion
+> ### Aliases: anyIncomplete
+> 
+> ### ** Examples
+> 
+> ##---- Should be DIRECTLY executable !! ----
+> ##-- ==>  Define data, use random,
+> ##--	or do  help(data=index)  for the standard data sets.
+> 
+> ## The function is currently defined as
+> function (table) 
++ {
++     if (!(class(table) %in% c("matrix", "data.frame", "data.table"))) 
++         stop("Input is not a matrix, data frame or data table")
++     out = list()
++     out$dimension = paste("Dimension: ", dim(table)[1], " rows * ", 
++         dim(table)[2], " columns", sep = "")
++     na = apply(table, 2, FUN = function(column) {
++         any = sum(is.na(column))
++         return(any)
++     })
++     out$na = na[na >= 1]
++     null = apply(table, 2, FUN = function(column) {
++         any = sum(is.null(column))
++         return(any)
++     })
++     out$null = null[null >= 1]
++     nan = apply(table, 2, FUN = function(column) {
++         any = sum(is.nan(column))
++         return(any)
++     })
++     out$nan = nan[nan >= 1]
++     empty = apply(table, 2, FUN = function(column) {
++         any = sum(column == "", na.rm = T)
++         return(any)
++     })
++     out$empty = empty[empty >= 1]
++     total = sum(c(na, null, nan, empty))
++     out$completeness = paste(total, " of NA, NAN, NULL, or empty character is found from ", 
++         dim(table)[1] * dim(table)[2], " data points. They constitute ", 
++         total/(dim(table)[1] * dim(table)[2]) * 100, "%", sep = "")
++     return(out)
++   }
+function (table) 
+{
+    if (!(class(table) %in% c("matrix", "data.frame", "data.table"))) 
+        stop("Input is not a matrix, data frame or data table")
+    out = list()
+    out$dimension = paste("Dimension: ", dim(table)[1], " rows * ", 
+        dim(table)[2], " columns", sep = "")
+    na = apply(table, 2, FUN = function(column) {
+        any = sum(is.na(column))
+        return(any)
+    })
+    out$na = na[na >= 1]
+    null = apply(table, 2, FUN = function(column) {
+        any = sum(is.null(column))
+        return(any)
+    })
+    out$null = null[null >= 1]
+    nan = apply(table, 2, FUN = function(column) {
+        any = sum(is.nan(column))
+        return(any)
+    })
+    out$nan = nan[nan >= 1]
+    empty = apply(table, 2, FUN = function(column) {
+        any = sum(column == "", na.rm = T)
+        return(any)
+    })
+    out$empty = empty[empty >= 1]
+    total = sum(c(na, null, nan, empty))
+    out$completeness = paste(total, " of NA, NAN, NULL, or empty character is found from ", 
+        dim(table)[1] * dim(table)[2], " data points. They constitute ", 
+        total/(dim(table)[1] * dim(table)[2]) * 100, "%", sep = "")
+    return(out)
+}
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("anyIncomplete", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("changeNames")
+> ### * changeNames
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: changeNames
+> ### Title: Change rol/col names
+> ### Aliases: changeNames
+> 
+> ### ** Examples
+> 
+> ##---- Should be DIRECTLY executable !! ----
+> ##-- ==>  Define data, use random,
+> ##--	or do  help(data=index)  for the standard data sets.
+> 
+> ## The function is currently defined as
+> function (rowOrCol, Table, nameForTable) 
++ {
++     if (rowOrCol == "row") {
++         IndexForNewName = match(rownames(Table), nameForTable[, 
++             1])
++         rownames(Table) = nameForTable[, 2][IndexForNewName]
++     }
++     else if (rowOrCol == "col") {
++         IndexForNewName = match(colnames(Table), nameForTable[, 
++             1])
++         colnames(Table) = nameForTable[, 2][IndexForNewName]
++     }
++     else {
++         stop("Enter either \"row\" or \"col\"")
++     }
++     return(Table)
++   }
+function (rowOrCol, Table, nameForTable) 
+{
+    if (rowOrCol == "row") {
+        IndexForNewName = match(rownames(Table), nameForTable[, 
+            1])
+        rownames(Table) = nameForTable[, 2][IndexForNewName]
+    }
+    else if (rowOrCol == "col") {
+        IndexForNewName = match(colnames(Table), nameForTable[, 
+            1])
+        colnames(Table) = nameForTable[, 2][IndexForNewName]
+    }
+    else {
+        stop("Enter either \"row\" or \"col\"")
+    }
+    return(Table)
+}
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("changeNames", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("checkDuplicates_vect")
+> ### * checkDuplicates_vect
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: checkDuplicates_vect
+> ### Title: Check items that occur more than once
+> ### Aliases: checkDuplicates_vect
+> 
+> ### ** Examples
+> 
+> ##---- Should be DIRECTLY executable !! ----
+> ##-- ==>  Define data, use random,
+> ##--	or do  help(data=index)  for the standard data sets.
+> 
+> ## The function is currently defined as
+> function (vect) 
++ {
++     if (sum(duplicated(vect)) >= 1) {
++         print("Some duplicates are found:")
++         table(vect)
++     }
++     else {
++         return("Everything in this vector is unique")
++     }
++   }
+function (vect) 
+{
+    if (sum(duplicated(vect)) >= 1) {
+        print("Some duplicates are found:")
+        table(vect)
+    }
+    else {
+        return("Everything in this vector is unique")
+    }
+}
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("checkDuplicates_vect", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("filterTable")
+> ### * filterTable
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: filterTable
+> ### Title: Check and remove incompletion of your matrix/dataframe/datatable
+> ### Aliases: filterTable
+> 
+> ### ** Examples
+> 
+> ##---- Should be DIRECTLY executable !! ----
+> ##-- ==>  Define data, use random,
+> ##--	or do  help(data=index)  for the standard data sets.
+> 
+> ## The function is currently defined as
+> function (table) 
++ {
++     if (!(class(table) %in% c("matrix", "data.frame", "data.table"))) 
++         stop("Input is not a matrix, data frame or data table")
++     colToBeRemoved = apply(table, 2, FUN = function(col) {
++         ifelse(sum(is.na(col) + is.nan(col) + is.null(col) + 
++             sapply(col, FUN = function(point) {
++                 identical(as.character(point), "")
++             })) >= 1, T, F)
++     })
++     new_table = table[, !colToBeRemoved]
++     return(new_table)
++   }
+function (table) 
+{
+    if (!(class(table) %in% c("matrix", "data.frame", "data.table"))) 
+        stop("Input is not a matrix, data frame or data table")
+    colToBeRemoved = apply(table, 2, FUN = function(col) {
+        ifelse(sum(is.na(col) + is.nan(col) + is.null(col) + 
+            sapply(col, FUN = function(point) {
+                identical(as.character(point), "")
+            })) >= 1, T, F)
+    })
+    new_table = table[, !colToBeRemoved]
+    return(new_table)
+}
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("filterTable", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("graphTable")
+> ### * graphTable
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: graphTable
+> ### Title: Draw a heat map of your matrix/dataframe/datatable
+> ### Aliases: graphTable
+> 
+> ### ** Examples
+> 
+> ##---- Should be DIRECTLY executable !! ----
+> ##-- ==>  Define data, use random,
+> ##--	or do  help(data=index)  for the standard data sets.
+> 
+> ## The function is currently defined as
+> function (table) 
++ {
++     if (!(class(table) %in% c("matrix", "data.frame", "data.table"))) 
++         stop("Input is not a matrix, data frame or data table")
++     if (class(table) == "matrix" && typeof(table) %in% c("integer", 
++         "single", "double")) {
++         table[] = sapply(table, FUN = function(point) as.numeric(point))
++         print("From all data in the table")
++         print(summary(as.numeric(table)))
++     }
++     else table[] = sapply(table, FUN = function(point) as.numeric(point))
++     colnames(table) = NULL
++     rownames(table) = NULL
++     listOfPackages = c("grid", "pheatmap")
++     new_pack = listOfPackages[!(listOfPackages %in% installed.packages()[, 
++         "Package"])]
++     if (length(new_pack)) {
++         print(paste(new_pack, " is required and being installed...", 
++             sep = ""))
++         install.packages(new_pack)
++     }
++     
++     q = quantile(table, na.rm = T)
++     q1 = q["25%"]
++     med = q["50%"]
++     q3 = q["75%"]
++     iqr = q3 - q1
++     lower = q1 - 3 * iqr
++     upper = q3 + 3 * iqr
++     palette.breaks = c(0:50 * (med - lower)/50 + lower, 1:50 * 
++         (upper - med)/50 + med)
++     pheatmap::pheatmap(table, cluster_rows = F, cluster_cols = F, breaks = palette.breaks, 
++         show_rownames = F, show_colnames = F)
++   }
+function (table) 
+{
+    if (!(class(table) %in% c("matrix", "data.frame", "data.table"))) 
+        stop("Input is not a matrix, data frame or data table")
+    if (class(table) == "matrix" && typeof(table) %in% c("integer", 
+        "single", "double")) {
+        table[] = sapply(table, FUN = function(point) as.numeric(point))
+        print("From all data in the table")
+        print(summary(as.numeric(table)))
+    }
+    else table[] = sapply(table, FUN = function(point) as.numeric(point))
+    colnames(table) = NULL
+    rownames(table) = NULL
+    listOfPackages = c("grid", "pheatmap")
+    new_pack = listOfPackages[!(listOfPackages %in% installed.packages()[, 
+        "Package"])]
+    if (length(new_pack)) {
+        print(paste(new_pack, " is required and being installed...", 
+            sep = ""))
+        install.packages(new_pack)
+    }
+    q = quantile(table, na.rm = T)
+    q1 = q["25%"]
+    med = q["50%"]
+    q3 = q["75%"]
+    iqr = q3 - q1
+    lower = q1 - 3 * iqr
+    upper = q3 + 3 * iqr
+    palette.breaks = c(0:50 * (med - lower)/50 + lower, 1:50 * 
+        (upper - med)/50 + med)
+    pheatmap::pheatmap(table, cluster_rows = F, cluster_cols = F, 
+        breaks = palette.breaks, show_rownames = F, show_colnames = F)
+}
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("graphTable", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("tableSMY-package")
+> ### * tableSMY-package
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: tableSMY-package
+> ### Title: A Simple Toolbox that Allows Quick Visualization of your Matrix
+> ###   or Dataframe
+> ### Aliases: tableSMY-package tableSMY
+> ### Keywords: package
+> 
+> ### ** Examples
+> 
+> mat=matrix(c(1,2,3,4,5,6),ncol=2)
+> graphTable(mat)
+[1] "From all data in the table"
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   1.00    2.25    3.50    3.50    4.75    6.00 
+> 
+> set.seed(101)
+> random.matrix=matrix(runif(500, min = -1, max = 1), nrow = 50)
+> graphTable(random.matrix)
+[1] "From all data in the table"
+     Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
+-0.995242 -0.509843  0.001579  0.012387  0.505526  0.998575 
+> 
+> set.seed(101)
+> random.matrix[sample(1:50,10),sample(1:10,2)]=NA
+> graphTable(random.matrix)
+[1] "From all data in the table"
+     Min.   1st Qu.    Median      Mean   3rd Qu.      Max.      NA's 
+-0.995242 -0.502321 -0.006378  0.014377  0.505526  0.998575        20 
+> 
+> anyIncomplete(random.matrix)
+$dimension
+[1] "Dimension: 50 rows * 10 columns"
+
+$na
+[1] 10 10
+
+$null
+integer(0)
+
+$nan
+integer(0)
+
+$empty
+integer(0)
+
+$completeness
+[1] "20 of NA, NAN, NULL, or empty character is found from 500 data points. They constitute 4%"
+
+> 
+> filtered_random.matrix=filterTable(random.matrix)
+> str(filtered_random.matrix)
+ num [1:50, 1:8] -0.256 -0.912 0.419 0.315 -0.5 ...
+> 
+> checkDuplicates_vect(c(1,1,2,3,4,4,4,5,6,7,8,9,10))
+[1] "Some duplicates are found:"
+vect
+ 1  2  3  4  5  6  7  8  9 10 
+ 2  1  1  3  1  1  1  1  1  1 
+> 
+> Table=matrix(rnorm(2*3),ncol=2,nrow=3)
+> rownames(Table)=c("one","two","three")
+> colnames(Table)=c("col_one","col_two")
+> Table
+         col_one    col_two
+one    0.6187899 -0.2232594
+two   -0.1127343  0.5264481
+three  0.9170283 -0.7948444
+> 
+> 
+> rowNameForTable=matrix(c("two","one","three","TWO","ONE","THREE"),ncol=2,byrow=FALSE)
+> colNameForTable=matrix(c("col_two","col_one","COL_TWO","COL_ONE"),ncol=2,byrow=FALSE)
+> 
+> #newTable=changeNames(rowOrCol="test",Table,nameForTable) #test the error message of the function
+> newTable=changeNames(rowOrCol="row",Table,rowNameForTable) #test rownames
+> newTable=changeNames(rowOrCol="col",Table,colNameForTable) #test colnames 
+> 
+> 
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("tableSMY-package", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> ### * <FOOTER>
+> ###
+> cleanEx()
+> options(digits = 7L)
+> base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
+Time elapsed:  0.461 0.059 0.658 0 0 
+> grDevices::dev.off()
+null device 
+          1 
+> ###
+> ### Local variables: ***
+> ### mode: outline-minor ***
+> ### outline-regexp: "\\(> \\)?### [*]+" ***
+> ### End: ***
+> quit('no')

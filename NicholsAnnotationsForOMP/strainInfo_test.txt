@@ -1,0 +1,3 @@
+BW25113 + allele in column D	ECK0026	ribF	ribF::SPA-kan	parent: [[OMP ST:800 ! Escherichia coli K-12 BW25113]]	NA	PMID:21185072	NA	NA
+JW0001	ECK0002	thrA	thrA722(del)::FRT-kan-FRT	parent: [[OMP ST:800 ! Escherichia coli K-12 BW25113]]	[[Category:Keio Knockouts For E. coli K-12]]	PMID:16738554	JW0001-1	http://cgsc2.biology.yale.edu/Strain.php?ID=115679
+GSO183	ECK0071	sgrS	sgrS(del)::FRT-kan-FRT	parent: [[OMP ST:159 ! Escherichia coli K-12 MG1655]]	NA	PMID:19734312	NA	NA

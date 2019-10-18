@@ -1,0 +1,13 @@
+---
+title: "Your title"
+output: 
+  html_document:
+    keep_md: true
+---
+
+Goal: 
+
+```{r ,tidy=TRUE}
+```
+
+*This document was knitted by rmarkdown::render(“yourfile.rmd”) instead of using the newly created environment

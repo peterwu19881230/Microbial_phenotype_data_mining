@@ -1,0 +1,6 @@
+name	user	system	elapsed
+anyIncomplete	0.358	0.038	0.418	
+changeNames	0.001	0.001	0.013	
+checkDuplicates_vect	0.000	0.001	0.006	
+filterTable	0.005	0.001	0.013	
+graphTable	0.071	0.011	0.137	

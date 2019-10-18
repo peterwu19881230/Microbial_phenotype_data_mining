@@ -1,0 +1,182 @@
+---
+title: "Correlations v.s. annotations (Only 140 conditions used)"
+output: 
+  html_document:
+    keep_md: true
+---
+
+Goal: Determine whether pearson correlation coefficient correlates with pathway annotations to genes
+
+#This chunk uses the whole dataset (All_Data)
+```{r ,tidy=TRUE,fig1, fig.height = 5, fig.width = 12}
+# Get the binary vector (true when at least 1 annotation for strain1 matches strain2's) for each pairwise pcc. Bind to abs.sort.nonRedun.140cond.strainCC.sql.NoIdent
+bi.pwy.annot=c()
+for(i in 1:length(strain1.annot.allPCC.140cond)){
+  bi.pwy.annot[i]=ifelse(sum(strain1.annot.allPCC.140cond[[i]] %in% strain2.annot.allPCC.140cond[[i]])>=1 & 
+                           !(NA %in% strain1.annot.allPCC.140cond[[i]]) &
+                            !(NA %in% strain2.annot.allPCC.140cond[[i]]) ,1,0)
+}
+
+abs.sort.nonRedun.140cond.strainCC.sql.NoIdent$"At least 1 same annotation"=bi.pwy.annot
+
+##(!) Solve this: ids with the same genotypes will cause problem in this analysis (Eg. duplicated strains)
+
+##### Modify the following code:---------------------------------------
+
+##Negative control => Look at the total fraction:
+sum(abs.sort.nonRedun.140cond.strainCC.sql.NoIdent$"At least 1 same annotation")/length(abs.sort.nonRedun.140cond.strainCC.sql.NoIdent$"At least 1 same annotation") #0.0009839238 
+## I should get the same number (0.0009839238) as I did in pcc using all conditions because the pairs having the same annotations are the same
+
+## Use the ranges of pcc for bins 
+bin.values=seq(1,0,length.out=21) # 21 values for ranges of 20 bins
+fraction=c()
+lengs=c() #No. of pcc for each bin. This is stored for displaying on the following barplot
+for(i in 1:20){
+  range=c(bin.values[i],bin.values[i+1])
+  binary.vector=abs.sort.nonRedun.140cond.strainCC.sql.NoIdent$`At least 1 same annotation`[abs.sort.nonRedun.140cond.strainCC.sql.NoIdent$Pearson.Correlation.Coefficient<=range[1] &     
+                                                                      abs.sort.nonRedun.140cond.strainCC.sql.NoIdent$Pearson.Correlation.Coefficient>range[2]]
+  fraction[i]=sum(binary.vector)/length(binary.vector)
+  lengs[i]=length(binary.vector)
+}
+mar.default <- c(5,4,4,2) + 0.1
+
+par(mar = mar.default + c(0, 4, 0, 0),mgp=c(4,1,0)) #mgp sets the axis label locations
+bp=barplot(main="PCC V.S. annotation in Nichols'",fraction,ylim=c(0,1),ylab="Same pwy annotation / Total pcc in a bin",
+        names.arg=c("1-0.95","0.95-0.9","0.9-0.85","0.85-0.8","0.8-0.75","0.75-0.7","0.7-0.65","0.65-0.6","0.6-0.55","0.55-0.5","0.5-0.45",
+                    "0.45-0.4","0.4-0.35","0.35-0.3","0.3-0.25","0.25-0.2","0.2-0.15","0.15-0.1","0.1-0.05","0.05-0"),
+        las=2, # las=2 rotates both the texts on x and y axis
+        cex.names =0.7,
+        xlab="Range of Pearson Correlation Coefficient"
+        ) 
+text(bp,fraction,pos=3,labels=lengs,cex=0.5) #"3" in pos=3 means "above"
+##The first argument contains the positions (x-axis values) for the labels
+##The second argument contains the positions (y-axis values) for the labels
+text(12,fraction[10]+0.6,pos=3,labels="(Above bars are the No. of pcc in the bin)\n1st bar: 2",cex=0.7,col="blue") #"3" in pos=3 means "above"
+##The first and the second number doesn't show on top of the bars. I put them in the text annotation
+
+# Negative control: I guess sampling many many tims would just be equivalent of taking the average (As discribed above):
+
+
+##More detailed bar plot. This would give an approximation of what the following line plot would look like.
+bin.values=seq(1,0,length.out=2001) 
+fraction=c()
+lengs=c() #No. of pcc for each bin. This is stored for displaying on the following barplot
+for(i in 1:(length(bin.values)-1)){
+  range=bin.values[i+1]
+  binary.vector=abs.sort.nonRedun.140cond.strainCC.sql.NoIdent$`At least 1 same annotation`[abs.sort.nonRedun.140cond.strainCC.sql.NoIdent$Pearson.Correlation.Coefficient>range]   
+                                                                        
+  fraction[i]=sum(binary.vector)/length(binary.vector)
+  lengs[i]=length(binary.vector)
+}
+mar.default <- c(5,4,4,2) + 0.1
+
+par(mar = mar.default + c(0, 4, 0, 0),mgp=c(4,1,0)) #mgp sets the axis label locations
+bp=barplot(main="PCC V.S. annotation in Nichols'",fraction,ylim=c(0,1),ylab="No. of same pwy annotation / cumulative total no. of pcc",
+           xlab="Decreasing PCC"
+) 
+
+
+##line plot
+fraction=c()
+cummulativeRatio=c()
+TFvector=abs.sort.nonRedun.140cond.strainCC.sql.NoIdent$`At least 1 same annotation`
+for(i in 1:10000){
+  cummulativeRatio[i]=sum(TFvector[1:i])/i
+}
+all_sorted_pcc=abs.sort.nonRedun.140cond.strainCC.sql.NoIdent$Pearson.Correlation.Coefficient
+
+plot(1:length(cummulativeRatio),cummulativeRatio,type="l",xlab="Order of the decreasing PCC",ylab="No. of the same pwy annotation / No. of pcc until the number of pcc")
+text(c(1,2000,4000,6000,8000,10000),
+     cummulativeRatio[c(1,2000,4000,6000,8000,10000)],pos=3,
+     labels=round(c(all_sorted_pcc[1],all_sorted_pcc[2000],all_sorted_pcc[4000],all_sorted_pcc[6000],all_sorted_pcc[8000],all_sorted_pcc[10000]),4),
+     cex=0.5) #"3" in pos=3 means "above"
+
+
+
+
+##If this analysis is ugly, I don't even have to think about fixing the strains (ids with the same genotypes will cause problem in this analysis (Eg. duplicated strains))
+
+```
+
+#This chunk uses the dataset that only contains genes annotated in pathways
+```{r ,tidy=TRUE, fig.height = 5, fig.width = 12}
+## Use the ranges of pcc for bins:
+bin.values=seq(1,0,length.out=21) # 21 values for ranges of 20 bins
+
+fraction=c()
+lengs=c() #No. of pcc for each bin. This is stored for displaying on the following barplot
+for(i in 1:20){
+  range=c(bin.values[i],bin.values[i+1])
+  binary.vector=pwy.pcc.140cond$`At least 1 same annotation`[pwy.pcc.140cond$Pearson.Correlation.Coefficient<=range[1] & pwy.pcc.140cond$Pearson.Correlation.Coefficient>range[2]]
+  fraction[i]=sum(binary.vector)/length(binary.vector)
+  lengs[i]=length(binary.vector)
+}
+mar.default <- c(5,4,4,2) + 0.1
+par(mar = mar.default + c(0, 4, 0, 0),mgp=c(4,1,0)) #mgp sets the axis label locations
+bp=barplot(main="PCC V.S. annotation in Nichols'",fraction,ylim=c(0,1),ylab="(Same pwy annotation / Total pcc in a bin)",
+        names.arg=c("1-0.95","0.95-0.9","0.9-0.85","0.85-0.8","0.8-0.75","0.75-0.7","0.7-0.65","0.65-0.6","0.6-0.55","0.55-0.5","0.5-0.45",
+                    "0.45-0.4","0.4-0.35","0.35-0.3","0.3-0.25","0.25-0.2","0.2-0.15","0.15-0.1","0.1-0.05","0.05-0"),
+        las=2, # las=2 rotates both the texts on x and y axis
+        cex.names =0.7,
+        xlab="Range of Pearson Correlation Coefficient"
+        ) 
+
+text(bp,fraction,pos=3,labels=lengs,cex=0.5) #"3" in pos=3 means "above"
+##The first argument contains the positions (x-axis values) for the labels
+##The second argument contains the positions (y-axis values) for the labels
+text(12,fraction[10]+0.6,pos=3,labels="(Above bars are the No. of pcc in the bin)\n1st bar: 2\n2nd bar: 9",cex=0.7,col="blue") #"3" in pos=3 means "above"
+##The first and the second number doesn't show on top of the bars. I put them in the text annotation
+
+# Negative control: I guess sampling many many tims would just be equivalent of taking the average (As discribed above)
+
+
+## Use a fixed number of pcc for each bin:
+bars=c()
+for(i in 1:20962){ 
+  #20962 bins if each represent ~5.3% of the total pcc. 20962 was chosen becuase total No. of rows of pwy.pcc.140cond= 398278 (can be divided by 19) 
+  #398278=2*19*47*223
+  start=((i-1)*19+1)
+  end=start+19-1
+  bars[i]=sum(pwy.pcc.140cond$"At least 1 same annotation"[start:end])/19  
+}
+
+##barplot(bars) ##No. of bars are too many. Didn't output a plot
+
+##Line plot works
+plot(main="PCC V.S. annotation in Nichols'",1:20962,bars,type="l",xlab="No. of bins",ylab="(Same pwy annotation/Total pcc in a bin)")
+##Look at the first 20 values
+plot(main="PCC V.S. annotation in Nichols'",1:200,bars[1:200],type="l",xlab="No. of bins",ylab="(Same pwy annotation/Total pcc in a bin)")
+##Look at the last 200 values
+plot(main="PCC V.S. annotation in Nichols'",(20962-200+1):20962,bars[(20962-200+1):20962],type="l",xlab="No. of bins",ylab="(Same pwy annotation/Total pcc in a bin)")
+
+##Negative control => Look at the total fraction:
+sum(pwy.pcc.140cond$"At least 1 same annotation")/length(pwy.pcc.140cond$"At least 1 same annotation") #0.01955167
+##This value would be the same as the experiment using all conditions
+
+
+##Negative control by sampling 19 genes multiple times. Here I do 10,000
+rand.fraction=c()
+set.seed(101)
+for(i in 1:10000){
+  indices=sample(1:dim(pwy.pcc.140cond)[1],19)
+  rand.fraction[i]=mean(pwy.pcc.140cond$`At least 1 same annotation`[indices])
+}
+##Average of means
+mean(rand.fraction) #0.01998421 => It's close to the previous negative control (total mean=0.01955167)
+
+rm(indices)
+
+
+##Percentage of bins that have fraction>0.01955167
+length(bars[bars>0.01955167])/length(bars) # ~30%
+
+
+
+
+
+##If this analysis is ugly, I don't even have to think about fixing the strains (ids with the same genotypes will cause problem in this analysis (Eg. duplicated strains))
+```
+
+
+*Knitted by: rmarkdown::render("correlationVSannotation/correlationVSannotation_140cond.Rmd")
+

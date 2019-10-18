@@ -1,0 +1,40 @@
+#Goal: Create fractions for each pathway
+
+'The following runs for about 5 min. The result will be in avg.fraction
+avg.fraction=c()
+num=0  #a counter for avg.fraction
+##This loop is to go through different pathways
+for(i in 1:length(pwy.list)){ 
+
+    fraction=c()
+    indices=pwy.list[[i]]
+    ##this loop is to go through that particular No. of strains
+    for(k in 1:length(indices)){
+      table=sort.pcc.sql.NoIdent[sort.pcc.sql.NoIdent$strain1==indices[k],]
+      sort.table=table[order(table$Pearson.Correlation.Coefficient,decreasing = T),]
+      n.sort.table=sort.table[1:length(indices),]
+      print(n.sort.table)
+      fraction[k]=sum(n.sort.table$strain2 %in% indices)/(length(indices)-1)
+    }
+
+  num=num+1
+  avg.fraction[num]=mean(fraction)
+}
+names(avg.fraction)=names(pwy.list)
+'
+
+indices=GetIndices(names(avg.fraction),pathwayscol$UNIQUE.ID) ##A self-defined function in function.R
+
+NoOfGenes=sapply(pwy.list,FUN=length)  
+
+bottomToTopFractionTable=cbind(names(avg.fraction),
+                               pathwayscol$NAME[indices],
+                               NoOfGenes,
+                               avg.fraction)
+colnames(bottomToTopFractionTable)=c("PathwayID","Pathway.Name","No.of.Genes","Average.Fraction")
+
+
+#Sort the table based on "Average.Fraction"
+sort.bottomToTopFractionTable=bottomToTopFractionTable[order(bottomToTopFractionTable[,"Average.Fraction"],decreasing = T),]
+
+

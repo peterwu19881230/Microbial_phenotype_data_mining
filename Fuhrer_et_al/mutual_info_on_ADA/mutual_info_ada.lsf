@@ -1,0 +1,15 @@
+##Ref: https://hprc.tamu.edu/wiki/Ada:Batch_Processing_LSF
+##NECESSARY JOB SPECIFICATIONS
+#BSUB -J mutual_info         #Set the job name to "the_name"
+#BSUB -L /bin/bash           #Uses the bash login shell to initialize the job's\
+execution environment.
+#BSUB -W 30:00                #Set the wall clock limit
+#BSUB -n 20                   #Request x core
+#BSUB -R "span[ptile=10]"     #Request y core per node
+#BSUB -R "rusage[mem=2560]"  #Request z MB (2.5GB) per node
+#BSUB -M 2560                #Set the per process enforceable memory limit 
+#BSUB -o mutual_info.out.%J      #Send stdout/err to "Example1Out.[jobID]"
+
+#First Executable Line
+module load R_tamu/3.6.0-foss-2018b-recommended-mt #run this to determine the newest version: module spider R. Use the module that allow installation of packages (e.g. the module on this line)
+Rscript mutual_info.R
