@@ -7,10 +7,4 @@
 
 *Nichols_preload.R is the file that loads some important stuff for the project (Dataset , functions and important objects I created)
 
-<<<<<<< HEAD
-*usedLibraries.R loads the libraries I use often
-=======
-*usedLibraries.R loads the libraries I use often
 
-
->>>>>>> 9b932d6ec561f238e14a8d190dfe4a8119c04ab3
